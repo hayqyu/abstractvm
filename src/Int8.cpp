@@ -5,7 +5,7 @@
 // Login   <voinne_c@epitech.net>
 // 
 // Started on  Mon Feb  9 16:57:11 2015 Cédric Voinnet
-// Last update Tue Feb 10 10:40:33 2015 Cédric Voinnet
+// Last update Tue Feb 10 15:35:05 2015 julien gazzola
 //
 
 #include <sstream>
@@ -13,7 +13,7 @@
 #include "IOperand.hh"
 
 Int8::Int8(std::string value):
-  _value(value.at(0)), _type(IOperand::eOperandType::Int8)
+  _value(value.at(0)), _type(int8)
 {
 }
 
@@ -22,7 +22,7 @@ Int8::Int8(Int8 const &other):
 {
 }
 
-Int8	&Int8::operator=(Int8 const &other)
+Int8     		&Int8::operator=(Int8 const &other)
 {
   if (this != &other)
     {
@@ -33,15 +33,11 @@ Int8	&Int8::operator=(Int8 const &other)
 }
 
 Int8::~Int8()
-{
-}
+{}
 
 std::string const	&Int8::toString() const
 {
-  std::stringstream	ss;
 
-  ss << this->_value;
-  return (ss.str());
 }
 
 int			Int8::getPrecision() const
@@ -49,28 +45,37 @@ int			Int8::getPrecision() const
   return (sizeof(this->_value));
 }
 
-IOperand::eOperandType	Int8::getType() const
+char			Int8::getValue() const
+{
+  return (this->_value);
+}
+
+eOperandType		Int8::getType() const
 {
   return (this->_type);
 }
 
-IOperand::IOperand	*operator+(const IOperand::IOperand &rhs)
+IOperand		*Int8::operator+(const IOperand::IOperand &rhs)
+{
+  //return (this->_value + ?);
+}
+
+IOperand		*Int8::operator-(const IOperand::IOperand &rhs)
+{
+  //return (this->_value - ?);
+}
+
+IOperand		*Int8::operator*(const IOperand::IOperand &rhs)
+{
+  //return (this->_value * ?);
+}
+
+IOperand		*Int8::operator/(const IOperand::IOperand &rhs)
+{
+  //?
+}
+
+IOperand		*Int8::operator%(const IOperand::IOperand &rhs)
 {
   
-}
-
-IOperand::IOperand	*operator-(const IOperand::IOperand &rhs)
-{
-}
-
-IOperand::IOperand	*operator*(const IOperand::IOperand &rhs)
-{
-}
-
-IOperand::IOperand	*operator/(const IOperand::IOperand &rhs)
-{
-}
-
-IOperand::IOperand	*operator%(const IOperand::IOperand &rhs)
-{
 }
