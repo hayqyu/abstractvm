@@ -8,7 +8,9 @@ CFLAGS =	-Wall -Wextra -Wall
 
 NAME =		bin/avm
 
-SRC =		src/Int8.cpp \
+SRC =		src/main.cpp \
+		src/Command.cpp #\
+		src/Int8.cpp \
 		src/Int16.cpp \
 		src/Int32.cpp \
 		src/Float.cpp \
@@ -21,7 +23,7 @@ all:		$(NAME)
 $(NAME):	$(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
-%.o: %.cpp
+%.o:		%.cpp
 	$(CC) $(CFLAGS) $(INCLUDES) -o $@ -c $<
 
 clean:
