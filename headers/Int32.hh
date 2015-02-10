@@ -5,7 +5,7 @@
 // Login   <gazzol_j@epitech.net>
 // 
 // Started on  Tue Feb 10 11:08:43 2015 julien gazzola
-// Last update Tue Feb 10 11:10:21 2015 julien gazzola
+// Last update Tue Feb 10 15:43:00 2015 julien gazzola
 //
 
 #ifndef INT32_HH_
@@ -15,23 +15,28 @@
 
 class Int32 : public IOperand
 {
+private:
+  int  				_value;
+  eOperandType 			_type;
+
 public:
   Int32(std::string);
   Int32(Int32 const &);
-  Int32					&operator=(Int32 const &);
-  virtual				~Int32();
+  Int32				&operator=(Int32 const &);
+  virtual      			~Int32();
 
 public:
-  virtual std::string const             &toString()const;
-  virtual int                           getPrecision() const;
-  virtual IOperand::eOperandType        getType() const;
+  std::string const             &toString()const;
+  int                           getPrecision() const;
+  eOperandType		        getType() const;
+  int				getValue() const;
 
 public:
-  virtual IOperand			*operator+(const IOperand &rhs);
-  virtual IOperand			*operator-(const IOperand &rhs);
-  virtual IOperand			*operator*(const IOperand &rhs);
-  virtual IOperand			*operator/(const IOperand &rhs);
-  virtual IOperand			*operator%(const IOperand &rhs);
+  IOperand			*operator+(const IOperand &rhs);
+  IOperand			*operator-(const IOperand &rhs);
+  IOperand			*operator*(const IOperand &rhs);
+  IOperand			*operator/(const IOperand &rhs);
+  IOperand			*operator%(const IOperand &rhs);
 };
 
 #endif  // !INT32_HH_

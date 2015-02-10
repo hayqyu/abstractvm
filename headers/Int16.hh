@@ -5,7 +5,7 @@
 // Login   <gazzol_j@epitech.net>
 // 
 // Started on  Tue Feb 10 11:03:34 2015 julien gazzola
-// Last update Tue Feb 10 11:15:51 2015 julien gazzola
+// Last update Tue Feb 10 15:42:44 2015 julien gazzola
 //
 
 #ifndef INT16_HH_
@@ -15,23 +15,28 @@
 
 class Int16 : public IOperand
 {
+private:
+  short	       			_value;
+  eOperandType 			_type;
+
 public:
   Int16(std::string);
   Int16(Int16 const &);
-  Int16					&operator=(Int16 const &);
-  virtual				~Int16();
+  Int16	       			&operator=(Int16 const &);
+  virtual      			~Int16();
 
 public:
-  virtual std::string const		&toString()const;
-  virtual int				getPrecision() const;
-  virtual IOperand::eOperandType	getType() const;
+  std::string const		&toString()const;
+  int				getPrecision() const;
+  eOperandType			getType() const;
+  short				getValue() const;
 
 public:
-  virtual IOperand			*operator+(const IOperand &rhs);
-  virtual IOperand			*operator-(const IOperand &rhs);
-  virtual IOperand			*operator*(const IOperand &rhs);
-  virtual IOperand			*operator/(const IOperand &rhs);
-  virtual IOperand			*operator%(const IOperand &rhs);
+  IOperand			*operator+(const IOperand &rhs);
+  IOperand			*operator-(const IOperand &rhs);
+  IOperand			*operator*(const IOperand &rhs);
+  IOperand			*operator/(const IOperand &rhs);
+  IOperand			*operator%(const IOperand &rhs);
 };
 
 #endif	// !INT16_HH_

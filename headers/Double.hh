@@ -5,7 +5,7 @@
 // Login   <gazzol_j@epitech.net>
 // 
 // Started on  Tue Feb 10 11:11:08 2015 julien gazzola
-// Last update Tue Feb 10 11:13:09 2015 julien gazzola
+// Last update Tue Feb 10 15:43:26 2015 julien gazzola
 //
 
 #ifndef DOUBLE_HH_
@@ -15,23 +15,28 @@
 
 class Double : public IOperand
 {
+private:
+  double       			_value;
+  eOperandType 			_type;
+
 public:
   Double(std::string);
   Double(Double const &);
-  Double				&operator=(Double const &);
-  virtual				~Double();
+  Double       			&operator=(Double const &);
+  virtual      			~Double();
 
 public:
-  virtual std::string const		&toString()const;
-  virtual int				getPrecision() const;
-  virtual IOperand::eOperandType	getType() const;
+  std::string const		&toString()const;
+  int				getPrecision() const;
+  eOperandType			getType() const;
+  double       			getValue() const;
 
 public:
-  virtual IOperand			*operator+(const IOperand &rhs);
-  virtual IOperand			*operator-(const IOperand &rhs);
-  virtual IOperand			*operator*(const IOperand &rhs);
-  virtual IOperand			*operator/(const IOperand &rhs);
-  virtual IOperand			*operator%(const IOperand &rhs);
+  IOperand			*operator+(const IOperand &rhs);
+  IOperand			*operator-(const IOperand &rhs);
+  IOperand			*operator*(const IOperand &rhs);
+  IOperand			*operator/(const IOperand &rhs);
+  IOperand			*operator%(const IOperand &rhs);
 };
 
 #endif  // !DOUBLE_HH_ 

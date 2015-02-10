@@ -5,7 +5,7 @@
 // Login   <gazzol_j@epitech.net>
 // 
 // Started on  Tue Feb 10 11:24:32 2015 julien gazzola
-// Last update Tue Feb 10 11:26:05 2015 julien gazzola
+// Last update Tue Feb 10 15:41:46 2015 julien gazzola
 //
 
 #include <sstream>
@@ -13,16 +13,16 @@
 #include "IOperand.hh"
 
 Float::Float(std::string value):
-  _value(value.at(0)), _type(IOperand::eOperandType::Float)
+  _value(value.at(0)), _type(float)
 {
 }
 
-Float::Float(Float const &other):
+Float::Float(float const &other):
   _value(other._value), _type(other._type)
 {
 }
 
-Float			&Float::operator=(Float const &other)
+Float     		&Float::operator=(Float const &other)
 {
   if (this != &other)
     {
@@ -33,8 +33,7 @@ Float			&Float::operator=(Float const &other)
 }
 
 Float::~Float()
-{
-}
+{}
 
 std::string const	&Float::toString() const
 {
@@ -46,28 +45,37 @@ int			Float::getPrecision() const
   return (sizeof(this->_value));
 }
 
-IOperand::eOperandType	Float::getType() const
+char			Float::getValue() const
+{
+  return (this->_value);
+}
+
+eOperandType		Float::getType() const
 {
   return (this->_type);
 }
 
-IOperand::IOperand	*operator+(const IOperand::IOperand &rhs)
+IOperand		*Float::operator+(const IOperand::IOperand &rhs)
+{
+  //return (this->_value + ?);
+}
+
+IOperand		*Float::operator-(const IOperand::IOperand &rhs)
+{
+  //return (this->_value - ?);
+}
+
+IOperand		*Float::operator*(const IOperand::IOperand &rhs)
+{
+  //return (this->_value * ?);
+}
+
+IOperand		*Float::operator/(const IOperand::IOperand &rhs)
+{
+  //?
+}
+
+IOperand		*Float::operator%(const IOperand::IOperand &rhs)
 {
   
-}
-
-IOperand::IOperand	*operator-(const IOperand::IOperand &rhs)
-{
-}
-
-IOperand::IOperand	*operator*(const IOperand::IOperand &rhs)
-{
-}
-
-IOperand::IOperand	*operator/(const IOperand::IOperand &rhs)
-{
-}
-
-IOperand::IOperand	*operator%(const IOperand::IOperand &rhs)
-{
 }

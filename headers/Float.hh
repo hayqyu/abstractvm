@@ -5,7 +5,7 @@
 // Login   <gazzol_j@epitech.net>
 // 
 // Started on  Tue Feb 10 11:13:25 2015 julien gazzola
-// Last update Tue Feb 10 11:15:01 2015 julien gazzola
+// Last update Tue Feb 10 15:43:14 2015 julien gazzola
 //
 
 #ifndef Float_HH_
@@ -15,23 +15,28 @@
 
 class Float : public IOperand
 {
+private:
+  float	       			_value;
+  eOperandType 			_type;
+
 public:
   Float(std::string);
   Float(Float const &);
-  Float					&operator=(Float const &);
-  virtual				~Float();
+  Float	       			&operator=(Float const &);
+  virtual      			~Float();
 
 public:
-  virtual std::string const		&toString()const;
-  virtual int				getPrecision() const;
-  virtual IOperand::eOperandType	getType() const;
+  std::string const		&toString()const;
+  int				getPrecision() const;
+  eOperandType			getType() const;
+  float				getValue() const;
 
 public:
-  virtual IOperand			*operator+(const IOperand &rhs);
-  virtual IOperand			*operator-(const IOperand &rhs);
-  virtual IOperand			*operator*(const IOperand &rhs);
-  virtual IOperand			*operator/(const IOperand &rhs);
-  virtual IOperand			*operator%(const IOperand &rhs);
+  IOperand			*operator+(const IOperand &rhs);
+  IOperand			*operator-(const IOperand &rhs);
+  IOperand			*operator*(const IOperand &rhs);
+  IOperand			*operator/(const IOperand &rhs);
+  IOperand			*operator%(const IOperand &rhs);
 };
 
 #endif  // !INT8_HH_

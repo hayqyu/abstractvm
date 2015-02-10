@@ -5,7 +5,7 @@
 // Login   <gazzol_j@epitech.net>
 // 
 // Started on  Tue Feb 10 11:19:37 2015 julien gazzola
-// Last update Tue Feb 10 11:22:26 2015 julien gazzola
+// Last update Tue Feb 10 15:34:50 2015 julien gazzola
 //
 
 #include <sstream>
@@ -13,7 +13,7 @@
 #include "IOperand.hh"
 
 Int16::Int16(std::string value):
-  _value(value.at(0)), _type(IOperand::eOperandType::Int16)
+  _value(value.at(0)), _type(int16)
 {
 }
 
@@ -22,8 +22,7 @@ Int16::Int16(Int16 const &other):
 {
 }
 
-
-Int16			&Int16::operator=(Int16 const &other)
+Int16     		&Int16::operator=(Int16 const &other)
 {
   if (this != &other)
     {
@@ -34,8 +33,7 @@ Int16			&Int16::operator=(Int16 const &other)
 }
 
 Int16::~Int16()
-{
-}
+{}
 
 std::string const	&Int16::toString() const
 {
@@ -47,28 +45,37 @@ int			Int16::getPrecision() const
   return (sizeof(this->_value));
 }
 
-IOperand::eOperandType	Int16::getType() const
+char			Int16::getValue() const
+{
+  return (this->_value);
+}
+
+eOperandType		Int16::getType() const
 {
   return (this->_type);
 }
 
-IOperand::IOperand	*operator+(const IOperand::IOperand &rhs)
+IOperand		*Int16::operator+(const IOperand::IOperand &rhs)
+{
+  //return (this->_value + ?);
+}
+
+IOperand		*Int16::operator-(const IOperand::IOperand &rhs)
+{
+  //return (this->_value - ?);
+}
+
+IOperand		*Int16::operator*(const IOperand::IOperand &rhs)
+{
+  //return (this->_value * ?);
+}
+
+IOperand		*Int16::operator/(const IOperand::IOperand &rhs)
+{
+  //?
+}
+
+IOperand	*Int16::operator%(const IOperand::IOperand &rhs)
 {
   
-}
-
-IOperand::IOperand	*operator-(const IOperand::IOperand &rhs)
-{
-}
-
-IOperand::IOperand	*operator*(const IOperand::IOperand &rhs)
-{
-}
-
-IOperand::IOperand	*operator/(const IOperand::IOperand &rhs)
-{
-}
-
-IOperand::IOperand	*operator%(const IOperand::IOperand &rhs)
-{
 }

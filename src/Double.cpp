@@ -5,7 +5,7 @@
 // Login   <gazzol_j@epitech.net>
 // 
 // Started on  Tue Feb 10 11:26:18 2015 julien gazzola
-// Last update Tue Feb 10 11:28:08 2015 julien gazzola
+// Last update Tue Feb 10 15:41:39 2015 julien gazzola
 //
 
 #include <sstream>
@@ -13,16 +13,16 @@
 #include "IOperand.hh"
 
 Double::Double(std::string value):
-  _value(value.at(0)), _type(IOperand::eOperandType::Double)
+  _value(value.at(0)), _type(double)
 {
 }
 
-Double::Double(Double const &other):
+Double::Double(float const &other):
   _value(other._value), _type(other._type)
 {
 }
 
-Double			&Double::operator=(Double const &other)
+Double     		&Double::operator=(Double const &other)
 {
   if (this != &other)
     {
@@ -33,8 +33,7 @@ Double			&Double::operator=(Double const &other)
 }
 
 Double::~Double()
-{
-}
+{}
 
 std::string const	&Double::toString() const
 {
@@ -46,28 +45,37 @@ int			Double::getPrecision() const
   return (sizeof(this->_value));
 }
 
-IOperand::eOperandType	Double::getType() const
+char			Double::getValue() const
+{
+  return (this->_value);
+}
+
+eOperandType		Double::getType() const
 {
   return (this->_type);
 }
 
-IOperand::IOperand	*operator+(const IOperand::IOperand &rhs)
+IOperand		*Double::operator+(const IOperand::IOperand &rhs)
+{
+  //return (this->_value + ?);
+}
+
+IOperand		*Double::operator-(const IOperand::IOperand &rhs)
+{
+  //return (this->_value - ?);
+}
+
+IOperand		*Double::operator*(const IOperand::IOperand &rhs)
+{
+  //return (this->_value * ?);
+}
+
+IOperand		*Double::operator/(const IOperand::IOperand &rhs)
+{
+  //?
+}
+
+IOperand		*Double::operator%(const IOperand::IOperand &rhs)
 {
   
-}
-
-IOperand::IOperand	*operator-(const IOperand::IOperand &rhs)
-{
-}
-
-IOperand::IOperand	*operator*(const IOperand::IOperand &rhs)
-{
-}
-
-IOperand::IOperand	*operator/(const IOperand::IOperand &rhs)
-{
-}
-
-IOperand::IOperand	*operator%(const IOperand::IOperand &rhs)
-{
 }
