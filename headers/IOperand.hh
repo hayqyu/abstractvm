@@ -5,7 +5,7 @@
 // Login   <voinne_c@epitech.net>
 // 
 // Started on  Mon Feb  9 15:34:29 2015 Cédric Voinnet
-// Last update Tue Feb 10 10:02:33 2015 Cédric Voinnet
+// Last update Tue Feb 10 10:59:43 2015 julien gazzola
 //
 
 #ifndef IOPERAND_HH_
@@ -15,6 +15,10 @@
 
 class IOperand
 {
+protected:
+  char				_value;
+  IOperand::eOperandType	_type;
+
 public:
   enum eOperandType{
     Int8,
@@ -30,11 +34,11 @@ public:
   virtual eOperandType		getType() const = 0;
 
 public:
-  virtual IOperand *operator+(const IOperand &rhs) const = 0; //Somme
-  virtual IOperand *operator-(const IOperand &rhs) const = 0; //Difference
-  virtual IOperand *operator*(const IOperand &rhs) const = 0; //Produit
-  virtual IOperand *operator/(const IOperand &rhs) const = 0; //Quotient
-  virtual IOperand *operator%(const IOperand &rhs) const = 0; //Modulo
+  virtual IOperand *operator+(const IOperand &rhs) const = 0;
+  virtual IOperand *operator-(const IOperand &rhs) const = 0;
+  virtual IOperand *operator*(const IOperand &rhs) const = 0;
+  virtual IOperand *operator/(const IOperand &rhs) const = 0;
+  virtual IOperand *operator%(const IOperand &rhs) const = 0;
 
 public:
   virtual ~IOperand() {}

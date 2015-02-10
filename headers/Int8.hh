@@ -5,7 +5,7 @@
 // Login   <voinne_c@epitech.net>
 // 
 // Started on  Mon Feb  9 17:39:51 2015 Cédric Voinnet
-// Last update Tue Feb 10 09:52:59 2015 Cédric Voinnet
+// Last update Tue Feb 10 11:09:59 2015 julien gazzola
 //
 
 #ifndef INT8_HH_
@@ -15,15 +15,11 @@
 
 class Int8 : public IOperand
 {
-private:
-  char				_value;
-  IOperand::eOperandType	_type;
-
 public:
   Int8(std::string);
   Int8(Int8 const &);
-  Int8		&operator=(Int8 const &);
-  virtual	~Int8();
+  Int8					&operator=(Int8 const &);
+  virtual				~Int8();
 
 public:
   virtual std::string const		&toString()const;
@@ -31,11 +27,11 @@ public:
   virtual IOperand::eOperandType	getType() const;
 
 public:
-  virtual IOperand	*operator+(const IOperand &rhs);
-  virtual IOperand	*operator-(const IOperand &rhs);
-  virtual IOperand	*operator*(const IOperand &rhs);
-  virtual IOperand	*operator/(const IOperand &rhs);
-  virtual IOperand	*operator%(const IOperand &rhs);
+  virtual IOperand			*operator+(const IOperand &rhs);
+  virtual IOperand			*operator-(const IOperand &rhs);
+  virtual IOperand			*operator*(const IOperand &rhs);
+  virtual IOperand			*operator/(const IOperand &rhs);
+  virtual IOperand			*operator%(const IOperand &rhs);
 };
 
 #endif	// !INT8_HH_

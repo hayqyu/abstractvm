@@ -5,7 +5,7 @@
 // Login   <voinne_c@epitech.net>
 // 
 // Started on  Mon Feb  9 16:57:11 2015 Cédric Voinnet
-// Last update Tue Feb 10 10:40:33 2015 Cédric Voinnet
+// Last update Tue Feb 10 11:22:37 2015 julien gazzola
 //
 
 #include <sstream>
@@ -22,7 +22,7 @@ Int8::Int8(Int8 const &other):
 {
 }
 
-Int8	&Int8::operator=(Int8 const &other)
+Int8			&Int8::operator=(Int8 const &other)
 {
   if (this != &other)
     {
@@ -38,10 +38,7 @@ Int8::~Int8()
 
 std::string const	&Int8::toString() const
 {
-  std::stringstream	ss;
 
-  ss << this->_value;
-  return (ss.str());
 }
 
 int			Int8::getPrecision() const
