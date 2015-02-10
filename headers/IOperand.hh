@@ -5,14 +5,25 @@
 // Login   <voinne_c@epitech.net>
 // 
 // Started on  Mon Feb  9 15:34:29 2015 Cédric Voinnet
-// Last update Mon Feb  9 15:52:20 2015 Cédric Voinnet
+// Last update Tue Feb 10 10:02:33 2015 Cédric Voinnet
 //
 
 #ifndef IOPERAND_HH_
 # define IOPERAND_HH_
 
+# include <string>
+
 class IOperand
 {
+public:
+  enum eOperandType{
+    Int8,
+    Int16,
+    Int32,
+    Float,
+    DOuble
+  };
+
 public:
   virtual std::string const	&toString() const = 0;
   virtual int			getPrecision() const = 0;
