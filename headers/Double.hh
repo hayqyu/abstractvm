@@ -5,7 +5,7 @@
 // Login   <gazzol_j@epitech.net>
 // 
 // Started on  Tue Feb 10 11:11:08 2015 julien gazzola
-// Last update Wed Feb 11 12:56:23 2015 julien gazzola
+// Last update Wed Feb 11 13:00:50 2015 julien gazzola
 //
 
 #ifndef DOUBLE_HH_
@@ -32,11 +32,11 @@ public:
   eOperandType			getType() const;
 
 public:
-  IOperand			*operator+(const IOperand &rhs);
-  IOperand			*operator-(const IOperand &rhs);
-  IOperand			*operator*(const IOperand &rhs);
-  IOperand			*operator/(const IOperand &rhs);
-  IOperand			*operator%(const IOperand &rhs);
+  IOperand			*operator+(const IOperand &rhs) const;
+  IOperand			*operator-(const IOperand &rhs) const;
+  IOperand			*operator*(const IOperand &rhs) const;
+  IOperand			*operator/(const IOperand &rhs) const;
+  IOperand			*operator%(const IOperand &rhs) const;
   
 };
 
