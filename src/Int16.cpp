@@ -5,7 +5,7 @@
 // Login   <gazzol_j@epitech.net>
 // 
 // Started on  Tue Feb 10 11:19:37 2015 julien gazzola
-// Last update Wed Feb 11 12:55:47 2015 julien gazzola
+// Last update Wed Feb 11 13:06:08 2015 julien gazzola
 //
 
 #include <sstream>
@@ -48,27 +48,27 @@ eOperandType		Int16::getType() const
   return (this->_type);
 }
 
-IOperand		*Int16::operator+(const IOperand::IOperand &rhs)
+IOperand		*Int16::operator+(const IOperand::IOperand &rhs) const
 {
   //return (this->_value + ?);
 }
 
-IOperand		*Int16::operator-(const IOperand::IOperand &rhs)
+IOperand		*Int16::operator-(const IOperand::IOperand &rhs) const
 {
   //return (this->_value - ?);
 }
 
-IOperand		*Int16::operator*(const IOperand::IOperand &rhs)
+IOperand		*Int16::operator*(const IOperand::IOperand &rhs) const
 {
   //return (this->_value * ?);
 }
 
-IOperand		*Int16::operator/(const IOperand::IOperand &rhs)
+IOperand		*Int16::operator/(const IOperand::IOperand &rhs) const
 {
   //?
 }
 
-IOperand	*Int16::operator%(const IOperand::IOperand &rhs)
+IOperand		*Int16::operator%(const IOperand::IOperand &rhs) const
 {
   
 }

@@ -5,7 +5,7 @@
 // Login   <voinne_c@epitech.net>
 // 
 // Started on  Mon Feb  9 16:57:11 2015 Cédric Voinnet
-// Last update Wed Feb 11 12:55:32 2015 julien gazzola
+// Last update Wed Feb 11 13:05:41 2015 julien gazzola
 //
 
 #include <sstream>
@@ -48,27 +48,27 @@ eOperandType		Int8::getType() const
   return (this->_type);
 }
 
-IOperand		*Int8::operator+(const IOperand::IOperand &rhs)
+IOperand		*Int8::operator+(const IOperand::IOperand &rhs) const
 {
   //return (this->_value + ?);
 }
 
-IOperand		*Int8::operator-(const IOperand::IOperand &rhs)
+IOperand		*Int8::operator-(const IOperand::IOperand &rhs) const
 {
   //return (this->_value - ?);
 }
 
-IOperand		*Int8::operator*(const IOperand::IOperand &rhs)
+IOperand		*Int8::operator*(const IOperand::IOperand &rhs) const
 {
   //return (this->_value * ?);
 }
 
-IOperand		*Int8::operator/(const IOperand::IOperand &rhs)
+IOperand		*Int8::operator/(const IOperand::IOperand &rhs) const
 {
   //?
 }
 
-IOperand		*Int8::operator%(const IOperand::IOperand &rhs)
+IOperand		*Int8::operator%(const IOperand::IOperand &rhs) const
 {
   
 }

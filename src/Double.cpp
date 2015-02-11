@@ -5,7 +5,7 @@
 // Login   <gazzol_j@epitech.net>
 // 
 // Started on  Tue Feb 10 11:26:18 2015 julien gazzola
-// Last update Wed Feb 11 12:55:00 2015 julien gazzola
+// Last update Wed Feb 11 13:05:16 2015 julien gazzola
 //
 
 #include <sstream>
@@ -49,27 +49,27 @@ eOperandType		Double::getType() const
   return (this->_type);
 }
 
-IOperand		*Double::operator+(const IOperand::IOperand &rhs)
+IOperand		*Double::operator+(const IOperand::IOperand &rhs) const
 {
   //return (this->_value + ?);
 }
 
-IOperand		*Double::operator-(const IOperand::IOperand &rhs)
+IOperand		*Double::operator-(const IOperand::IOperand &rhs) const
 {
   //return (this->_value - ?);
 }
 
-IOperand		*Double::operator*(const IOperand::IOperand &rhs)
+IOperand		*Double::operator*(const IOperand::IOperand &rhs) const
 {
   //return (this->_value * ?);
 }
 
-IOperand		*Double::operator/(const IOperand::IOperand &rhs)
+IOperand		*Double::operator/(const IOperand::IOperand &rhs) const
 {
   //?
 }
 
-IOperand		*Double::operator%(const IOperand::IOperand &rhs)
+IOperand		*Double::operator%(const IOperand::IOperand &rhs) const
 {
   
 }
