@@ -5,19 +5,18 @@
 // Login   <gazzol_j@epitech.net>
 // 
 // Started on  Tue Feb 10 11:26:18 2015 julien gazzola
-// Last update Wed Feb 11 09:15:52 2015 julien gazzola
+// Last update Wed Feb 11 11:51:55 2015 julien gazzola
 //
 
 #include <sstream>
 #include "Double.hh"
 #include "IOperand.hh"
 
-Double::Double(std::string value):
-  _value(), _type(DOUBLE)
-{
-}
+Double::Double(std::string value) :
+  _value(value), _type(DOUBLE)
+{}
 
-Double::Double(float const &other):
+Double::Double(Double const &other):
   _value(other._value), _type(other._type)
 {
 }
@@ -35,26 +34,21 @@ Double     		&Double::operator=(Double const &other)
 Double::~Double()
 {}
 
-std::string const	&Double::toString() const
+/*std::string const	&Double::toString() const
 {
 
-}
+}*/
 
 int			Double::getPrecision() const
 {
   return (sizeof(this->_value));
 }
 
-char			Double::getValue() const
-{
-  return (this->_value);
-}
-
 eOperandType		Double::getType() const
 {
   return (this->_type);
 }
-
+/*
 IOperand		*Double::operator+(const IOperand::IOperand &rhs)
 {
   //return (this->_value + ?);
@@ -79,3 +73,4 @@ IOperand		*Double::operator%(const IOperand::IOperand &rhs)
 {
   
 }
+*/

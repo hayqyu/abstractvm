@@ -5,18 +5,19 @@
 // Login   <voinne_c@epitech.net>
 // 
 // Started on  Mon Feb  9 17:39:51 2015 Cédric Voinnet
-// Last update Wed Feb 11 09:12:18 2015 julien gazzola
+// Last update Wed Feb 11 11:52:48 2015 julien gazzola
 //
 
 #ifndef INT8_HH_
 # define INT8_HH_
 
+# include <string>
 # include "IOperand.hh"
 
 class Int8 : public IOperand
 {
 private:
-  char 				_value;
+  std::string 	       		_value;
   eOperandType		       	_type;
 
 public:
@@ -26,17 +27,17 @@ public:
   virtual      			~Int8();
 
 public:
-  std::string const    		&toString()const;
+  //  std::string const    		&toString()const;
   int		       		getPrecision() const;
   eOperandType		       	getType() const;
-  double       			getValue() const;
 
-public:
+  /*public:
   IOperand			*operator+(const IOperand &rhs);
   IOperand			*operator-(const IOperand &rhs);
   IOperand			*operator*(const IOperand &rhs);
   IOperand			*operator/(const IOperand &rhs);
   IOperand			*operator%(const IOperand &rhs);
+  */
 };
 
 #endif	// !INT8_HH_

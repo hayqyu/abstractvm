@@ -5,7 +5,7 @@
 // Login   <gazzol_j@epitech.net>
 // 
 // Started on  Tue Feb 10 11:22:56 2015 julien gazzola
-// Last update Wed Feb 11 09:20:36 2015 julien gazzola
+// Last update Wed Feb 11 11:51:00 2015 julien gazzola
 //
 
 #include <sstream>
@@ -13,14 +13,12 @@
 #include "IOperand.hh"
 
 Int32::Int32(std::string value):
-  _value(value.at(0)), _type(INT32)
-{
-}
+  _value(value), _type(INT32)
+{}
 
 Int32::Int32(Int32 const &other):
   _value(other._value), _type(other._type)
-{
-}
+{}
 
 Int32     		&Int32::operator=(Int32 const &other)
 {
@@ -35,26 +33,21 @@ Int32     		&Int32::operator=(Int32 const &other)
 Int32::~Int32()
 {}
 
-std::string const	&Int32::toString() const
+/*std::string const	&Int32::toString() const
 {
 
-}
+}*/
 
 int			Int32::getPrecision() const
 {
   return (sizeof(this->_value));
 }
 
-double			Int32::getValue() const
-{
-  return (this->_value);
-}
-
 eOperandType		Int32::getType() const
 {
   return (this->_type);
 }
-
+/*
 IOperand		*Int32::operator+(const IOperand::IOperand &rhs)
 {
   //return (this->_value + ?);
@@ -79,3 +72,4 @@ IOperand		*Int32::operator%(const IOperand::IOperand &rhs)
 {
   
 }
+*/
