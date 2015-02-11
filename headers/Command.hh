@@ -5,7 +5,7 @@
 // Login   <gazzol_j@epitech.net>
 // 
 // Started on  Tue Feb 10 10:07:43 2015 julien gazzola
-// Last update Wed Feb 11 14:34:35 2015 Cédric Voinnet
+// Last update Wed Feb 11 18:13:42 2015 Cédric Voinnet
 //
 
 #ifndef COMMAND_HH_
@@ -14,13 +14,30 @@
 # include <vector>
 # include <algorithm>
 # include <string>
+# include <map>
 # include "IOperand.hh"
 
 class					Command
 {
 private:
+  typedef enum	eAsmInstr
+    {
+      PUSH = 1,
+      POP,
+      DUMP,
+      ASSERT,
+      ADD,
+      SUB,
+      MUL,
+      DIV,
+      MOD,
+      PRINT,
+      EXIT
+    }		eAsmInstr;
+
   std::vector<std::string>		_instructions;
   std::vector<IOperand::IOperand>	_nbStack;
+  std::map<eAsmInstr, std::string>	_;
 
 public:
   Command();

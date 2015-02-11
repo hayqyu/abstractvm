@@ -5,7 +5,7 @@
 ## Login   <gazzol_j@epitech.net>
 ## 
 ## Started on  Tue Feb 10 16:03:27 2015 julien gazzola
-## Last update Wed Feb 11 14:36:32 2015 Cédric Voinnet
+## Last update Wed Feb 11 15:07:18 2015 Cédric Voinnet
 ##
 
 CC =		clang++
@@ -14,7 +14,7 @@ RM =		rm -f
 
 INCLUDES =	-Iheaders/
 
-CFLAGS =	-Wall -Wextra -Wall
+CFLAGS =	-Wall -Wextra -Wall -g3
 
 NAME =		bin/avm
 

@@ -5,15 +5,17 @@
 // Login   <gazzol_j@epitech.net>
 // 
 // Started on  Tue Feb 10 10:20:20 2015 julien gazzola
-// Last update Wed Feb 11 14:29:53 2015 Cédric Voinnet
+// Last update Wed Feb 11 18:14:46 2015 Cédric Voinnet
 //
 
 #include <fstream>
+#include <sstream>
 #include <iostream>
 #include "Command.hh"
 
 Command::Command()
 {
+  
 }
 
 void		Command::getInstructions()
@@ -62,7 +64,10 @@ int					Command::execution()
 
 int	Command::parser(std::string line)
 {
-  (void) line;
+  std::stringstream			ss;
+
+  ss << line;
+  
   return (0);
 }
 

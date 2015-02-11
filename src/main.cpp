@@ -5,7 +5,7 @@
 ** Login   <voinne_c@epitech.net>
 ** 
 ** Started on  Tue Feb 10 11:23:10 2015 Cédric Voinnet
-// Last update Tue Feb 10 16:07:54 2015 Cédric Voinnet
+// Last update Wed Feb 11 15:08:05 2015 Cédric Voinnet
 */
 
 #include "Command.hh"
@@ -20,6 +20,10 @@ int		main(int ac, char **av)
     if (runTime->getInstructions(av[1]))
       return (-1);
   if (runTime->execution())
-    return (-1);
+    {
+      delete runTime;
+      return (-1);
+    }
+  delete runTime;
   return (0);
 }
