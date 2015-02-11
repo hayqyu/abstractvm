@@ -5,7 +5,7 @@
 // Login   <gazzol_j@epitech.net>
 // 
 // Started on  Tue Feb 10 10:20:20 2015 julien gazzola
-// Last update Wed Feb 11 11:53:39 2015 Cédric Voinnet
+// Last update Wed Feb 11 14:29:53 2015 Cédric Voinnet
 //
 
 #include <fstream>
@@ -14,11 +14,6 @@
 
 Command::Command()
 {
-  this->_funcPtrTab[INT8] = &Command::createInt8;
-  this->_funcPtrTab[INT16] = &Command::createInt16;
-  this->_funcPtrTab[INT32] = &Command::createInt32;
-  this->_funcPtrTab[FLOAT] = &Command::createFloat;
-  this->_funcPtrTab[DOUBLE] = &Command::createDouble;
 }
 
 void		Command::getInstructions()
@@ -68,11 +63,6 @@ int					Command::execution()
 int	Command::parser(std::string line)
 {
   (void) line;
-  createOperand(INT8, "54");
-  createOperand(INT16, "54");
-  createOperand(INT32, "54");
-  createOperand(FLOAT, "54");
-  createOperand(DOUBLE, "54");
   return (0);
 }
 
@@ -129,39 +119,4 @@ void	Command::printf()
 void	Command::exit()
 {
   std::cout << "C'est un exit" << std::endl;
-}
-
-IOperand	*Command::createOperand(eOperandType type, const std::string & value)
-{
-  return ((this->*_funcPtrTab[type])(value));
-}
-
-IOperand	*Command::createInt8(const std::string & value)
-{
-  IOperand	*operand = new Int8(value);
-  return (operand);
-}
-
-IOperand	*Command::createInt16(const std::string & value)
-{
-  std::cout << "createInt16 " << value << std::endl;
-  return (NULL);
-}
-
-IOperand	*Command::createInt32(const std::string & value)
-{
-  std::cout << "createInt32 " << value << std::endl;
-  return (NULL);
-}
-
-IOperand	*Command::createFloat(const std::string & value)
-{
-  std::cout << "createFloat " << value << std::endl;
-  return (NULL);
-}
-
-IOperand	*Command::createDouble(const std::string & value)
-{
-  std::cout << "createDouble " << value << std::endl;
-  return (NULL);
 }

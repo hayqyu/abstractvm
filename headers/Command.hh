@@ -5,7 +5,7 @@
 // Login   <gazzol_j@epitech.net>
 // 
 // Started on  Tue Feb 10 10:07:43 2015 julien gazzola
-// Last update Wed Feb 11 11:30:03 2015 Cédric Voinnet
+// Last update Wed Feb 11 14:34:35 2015 Cédric Voinnet
 //
 
 #ifndef COMMAND_HH_
@@ -19,7 +19,6 @@
 class					Command
 {
 private:
-  IOperand		*(Command::*_funcPtrTab[5]) (const std::string &);
   std::vector<std::string>		_instructions;
   std::vector<IOperand::IOperand>	_nbStack;
 
@@ -33,16 +32,6 @@ public:
 
 public:
   int				execution();
-
-public:
-  IOperand			*createOperand(eOperandType type, const std::string & value);
-
-private:
-  IOperand			*createInt8(const std::string & value);
-  IOperand			*createInt16(const std::string & value);
-  IOperand			*createInt32(const std::string & value);
-  IOperand			*createFloat(const std::string & value);
-  IOperand			*createDouble(const std::string & value);
 
 private:
   int				parser(std::string);
