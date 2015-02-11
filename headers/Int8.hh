@@ -5,7 +5,7 @@
 // Login   <voinne_c@epitech.net>
 // 
 // Started on  Mon Feb  9 17:39:51 2015 Cédric Voinnet
-// Last update Tue Feb 10 15:22:12 2015 julien gazzola
+// Last update Wed Feb 11 09:12:18 2015 julien gazzola
 //
 
 #ifndef INT8_HH_
@@ -29,7 +29,7 @@ public:
   std::string const    		&toString()const;
   int		       		getPrecision() const;
   eOperandType		       	getType() const;
-  char 				getValue() const;
+  double       			getValue() const;
 
 public:
   IOperand			*operator+(const IOperand &rhs);

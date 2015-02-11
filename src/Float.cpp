@@ -5,19 +5,25 @@
 // Login   <gazzol_j@epitech.net>
 // 
 // Started on  Tue Feb 10 11:24:32 2015 julien gazzola
-// Last update Tue Feb 10 15:41:46 2015 julien gazzola
+// Last update Wed Feb 11 09:16:23 2015 julien gazzola
 //
 
+#include <string>
 #include <sstream>
 #include "Float.hh"
 #include "IOperand.hh"
 
-Float::Float(std::string value):
-  _value(value.at(0)), _type(float)
+Float::Float(std::string value)
 {
+  std::string::size_type	sz;
+  float				fvalue = 0;
+
+  value = std::stof (value, &sz);
+  _value = fvalue;
+  _type = FLOAT;
 }
 
-Float::Float(float const &other):
+Float::Float(Float const &other):
   _value(other._value), _type(other._type)
 {
 }
@@ -45,7 +51,7 @@ int			Float::getPrecision() const
   return (sizeof(this->_value));
 }
 
-char			Float::getValue() const
+double			Float::getValue() const
 {
   return (this->_value);
 }

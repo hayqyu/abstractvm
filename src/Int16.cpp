@@ -5,7 +5,7 @@
 // Login   <gazzol_j@epitech.net>
 // 
 // Started on  Tue Feb 10 11:19:37 2015 julien gazzola
-// Last update Tue Feb 10 15:34:50 2015 julien gazzola
+// Last update Wed Feb 11 09:18:46 2015 julien gazzola
 //
 
 #include <sstream>
@@ -13,7 +13,7 @@
 #include "IOperand.hh"
 
 Int16::Int16(std::string value):
-  _value(value.at(0)), _type(int16)
+  _value(value.at(0)), _type(INT16)
 {
 }
 
@@ -45,7 +45,7 @@ int			Int16::getPrecision() const
   return (sizeof(this->_value));
 }
 
-char			Int16::getValue() const
+double			Int16::getValue() const
 {
   return (this->_value);
 }

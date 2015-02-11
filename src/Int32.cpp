@@ -5,7 +5,7 @@
 // Login   <gazzol_j@epitech.net>
 // 
 // Started on  Tue Feb 10 11:22:56 2015 julien gazzola
-// Last update Tue Feb 10 15:36:53 2015 julien gazzola
+// Last update Wed Feb 11 09:20:36 2015 julien gazzola
 //
 
 #include <sstream>
@@ -13,7 +13,7 @@
 #include "IOperand.hh"
 
 Int32::Int32(std::string value):
-  _value(value.at(0)), _type(int32)
+  _value(value.at(0)), _type(INT32)
 {
 }
 
@@ -45,7 +45,7 @@ int			Int32::getPrecision() const
   return (sizeof(this->_value));
 }
 
-char			Int32::getValue() const
+double			Int32::getValue() const
 {
   return (this->_value);
 }

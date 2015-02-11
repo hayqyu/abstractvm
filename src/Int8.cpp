@@ -5,7 +5,7 @@
 // Login   <voinne_c@epitech.net>
 // 
 // Started on  Mon Feb  9 16:57:11 2015 Cédric Voinnet
-// Last update Tue Feb 10 15:35:05 2015 julien gazzola
+// Last update Wed Feb 11 09:17:20 2015 julien gazzola
 //
 
 #include <sstream>
@@ -13,7 +13,7 @@
 #include "IOperand.hh"
 
 Int8::Int8(std::string value):
-  _value(value.at(0)), _type(int8)
+  _value(value.at(0)), _type(INT8)
 {
 }
 
@@ -45,7 +45,7 @@ int			Int8::getPrecision() const
   return (sizeof(this->_value));
 }
 
-char			Int8::getValue() const
+double			Int8::getValue() const
 {
   return (this->_value);
 }

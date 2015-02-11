@@ -5,7 +5,7 @@
 // Login   <gazzol_j@epitech.net>
 // 
 // Started on  Tue Feb 10 11:13:25 2015 julien gazzola
-// Last update Tue Feb 10 15:43:14 2015 julien gazzola
+// Last update Wed Feb 11 09:37:50 2015 julien gazzola
 //
 
 #ifndef Float_HH_
@@ -29,7 +29,7 @@ public:
   std::string const		&toString()const;
   int				getPrecision() const;
   eOperandType			getType() const;
-  float				getValue() const;
+  double       			getValue() const;
 
 public:
   IOperand			*operator+(const IOperand &rhs);

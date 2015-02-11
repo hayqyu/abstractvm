@@ -5,7 +5,7 @@
 // Login   <gazzol_j@epitech.net>
 // 
 // Started on  Tue Feb 10 11:26:18 2015 julien gazzola
-// Last update Tue Feb 10 15:41:39 2015 julien gazzola
+// Last update Wed Feb 11 09:15:52 2015 julien gazzola
 //
 
 #include <sstream>
@@ -13,7 +13,7 @@
 #include "IOperand.hh"
 
 Double::Double(std::string value):
-  _value(value.at(0)), _type(double)
+  _value(), _type(DOUBLE)
 {
 }
 

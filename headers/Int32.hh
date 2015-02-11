@@ -5,7 +5,7 @@
 // Login   <gazzol_j@epitech.net>
 // 
 // Started on  Tue Feb 10 11:08:43 2015 julien gazzola
-// Last update Tue Feb 10 15:43:00 2015 julien gazzola
+// Last update Wed Feb 11 09:13:31 2015 julien gazzola
 //
 
 #ifndef INT32_HH_
@@ -29,7 +29,7 @@ public:
   std::string const             &toString()const;
   int                           getPrecision() const;
   eOperandType		        getType() const;
-  int				getValue() const;
+  double       			getValue() const;
 
 public:
   IOperand			*operator+(const IOperand &rhs);
