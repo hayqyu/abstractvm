@@ -5,7 +5,7 @@
 // Login   <gazzol_j@epitech.net>
 // 
 // Started on  Tue Feb 10 11:19:37 2015 julien gazzola
-// Last update Wed Feb 11 11:50:45 2015 julien gazzola
+// Last update Wed Feb 11 12:55:47 2015 julien gazzola
 //
 
 #include <sstream>
@@ -33,10 +33,10 @@ Int16     		&Int16::operator=(Int16 const &other)
 Int16::~Int16()
 {}
 
-/*std::string const	&Int16::toString() const
+std::string const	&Int16::toString() const
 {
 
-}*/
+}
 
 int			Int16::getPrecision() const
 {
@@ -47,7 +47,7 @@ eOperandType		Int16::getType() const
 {
   return (this->_type);
 }
-/*
+
 IOperand		*Int16::operator+(const IOperand::IOperand &rhs)
 {
   //return (this->_value + ?);
@@ -72,4 +72,3 @@ IOperand	*Int16::operator%(const IOperand::IOperand &rhs)
 {
   
 }
-*/

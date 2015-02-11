@@ -5,7 +5,7 @@
 // Login   <gazzol_j@epitech.net>
 // 
 // Started on  Tue Feb 10 11:03:34 2015 julien gazzola
-// Last update Wed Feb 11 11:48:46 2015 julien gazzola
+// Last update Wed Feb 11 12:57:41 2015 julien gazzola
 //
 
 #ifndef INT16_HH_
@@ -27,17 +27,16 @@ public:
   virtual      			~Int16();
 
 public:
-  //  std::string const		&toString()const;
+  std::string const		&toString()const;
   int				getPrecision() const;
   eOperandType			getType() const;
 
-  /*public:
+public:
   IOperand			*operator+(const IOperand &rhs);
   IOperand			*operator-(const IOperand &rhs);
   IOperand			*operator*(const IOperand &rhs);
   IOperand			*operator/(const IOperand &rhs);
   IOperand			*operator%(const IOperand &rhs);
-  */
 };
 
 #endif	// !INT16_HH_

@@ -5,7 +5,7 @@
 // Login   <voinne_c@epitech.net>
 // 
 // Started on  Mon Feb  9 17:39:51 2015 Cédric Voinnet
-// Last update Wed Feb 11 11:52:48 2015 julien gazzola
+// Last update Wed Feb 11 12:57:24 2015 julien gazzola
 //
 
 #ifndef INT8_HH_
@@ -27,17 +27,16 @@ public:
   virtual      			~Int8();
 
 public:
-  //  std::string const    		&toString()const;
+  std::string const    		&toString()const;
   int		       		getPrecision() const;
   eOperandType		       	getType() const;
 
-  /*public:
+public:
   IOperand			*operator+(const IOperand &rhs);
   IOperand			*operator-(const IOperand &rhs);
   IOperand			*operator*(const IOperand &rhs);
   IOperand			*operator/(const IOperand &rhs);
   IOperand			*operator%(const IOperand &rhs);
-  */
 };
 
 #endif	// !INT8_HH_

@@ -5,7 +5,7 @@
 // Login   <voinne_c@epitech.net>
 // 
 // Started on  Mon Feb  9 16:57:11 2015 Cédric Voinnet
-// Last update Wed Feb 11 11:50:29 2015 julien gazzola
+// Last update Wed Feb 11 12:55:32 2015 julien gazzola
 //
 
 #include <sstream>
@@ -33,10 +33,10 @@ Int8     		&Int8::operator=(Int8 const &other)
 Int8::~Int8()
 {}
 
-/*std::string const	&Int8::toString() const
+std::string const	&Int8::toString() const
 {
 
-}*/
+}
 
 int			Int8::getPrecision() const
 {
@@ -47,7 +47,7 @@ eOperandType		Int8::getType() const
 {
   return (this->_type);
 }
-/*
+
 IOperand		*Int8::operator+(const IOperand::IOperand &rhs)
 {
   //return (this->_value + ?);
@@ -72,4 +72,3 @@ IOperand		*Int8::operator%(const IOperand::IOperand &rhs)
 {
   
 }
-*/

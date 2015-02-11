@@ -5,7 +5,7 @@
 // Login   <gazzol_j@epitech.net>
 // 
 // Started on  Tue Feb 10 11:22:56 2015 julien gazzola
-// Last update Wed Feb 11 11:51:00 2015 julien gazzola
+// Last update Wed Feb 11 12:56:03 2015 julien gazzola
 //
 
 #include <sstream>
@@ -33,10 +33,10 @@ Int32     		&Int32::operator=(Int32 const &other)
 Int32::~Int32()
 {}
 
-/*std::string const	&Int32::toString() const
+std::string const	&Int32::toString() const
 {
 
-}*/
+}
 
 int			Int32::getPrecision() const
 {
@@ -47,7 +47,7 @@ eOperandType		Int32::getType() const
 {
   return (this->_type);
 }
-/*
+
 IOperand		*Int32::operator+(const IOperand::IOperand &rhs)
 {
   //return (this->_value + ?);
@@ -72,4 +72,3 @@ IOperand		*Int32::operator%(const IOperand::IOperand &rhs)
 {
   
 }
-*/

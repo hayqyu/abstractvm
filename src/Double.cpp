@@ -5,7 +5,7 @@
 // Login   <gazzol_j@epitech.net>
 // 
 // Started on  Tue Feb 10 11:26:18 2015 julien gazzola
-// Last update Wed Feb 11 11:51:55 2015 julien gazzola
+// Last update Wed Feb 11 12:55:00 2015 julien gazzola
 //
 
 #include <sstream>
@@ -34,10 +34,10 @@ Double     		&Double::operator=(Double const &other)
 Double::~Double()
 {}
 
-/*std::string const	&Double::toString() const
+std::string const	&Double::toString() const
 {
 
-}*/
+}
 
 int			Double::getPrecision() const
 {
@@ -48,7 +48,7 @@ eOperandType		Double::getType() const
 {
   return (this->_type);
 }
-/*
+
 IOperand		*Double::operator+(const IOperand::IOperand &rhs)
 {
   //return (this->_value + ?);
@@ -73,4 +73,4 @@ IOperand		*Double::operator%(const IOperand::IOperand &rhs)
 {
   
 }
-*/
+
