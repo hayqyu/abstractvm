@@ -5,7 +5,7 @@
 // Login   <gazzol_j@epitech.net>
 // 
 // Started on  Tue Feb 10 11:08:43 2015 julien gazzola
-// Last update Wed Feb 11 13:02:41 2015 julien gazzola
+// Last update Wed Feb 11 18:14:04 2015 julien gazzola
 //
 
 #ifndef INT32_HH_
@@ -35,8 +35,8 @@ public:
   IOperand			*operator+(const IOperand &rhs) const;
   IOperand			*operator-(const IOperand &rhs) const;
   IOperand			*operator*(const IOperand &rhs) const;
-  IOperand			*operator/(const IOperand &rhs) const;
-  IOperand			*operator%(const IOperand &rhs) const;
+  //  IOperand			*operator/(const IOperand &rhs) const;
+  //  IOperand			*operator%(const IOperand &rhs) const;
 };
 
 #endif  // !INT32_HH_

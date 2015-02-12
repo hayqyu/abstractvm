@@ -5,7 +5,7 @@
 // Login   <voinne_c@epitech.net>
 // 
 // Started on  Mon Feb  9 17:39:51 2015 Cédric Voinnet
-// Last update Wed Feb 11 13:02:00 2015 julien gazzola
+// Last update Wed Feb 11 18:06:27 2015 julien gazzola
 //
 
 #ifndef INT8_HH_
@@ -35,8 +35,8 @@ public:
   IOperand			*operator+(const IOperand &rhs) const;
   IOperand			*operator-(const IOperand &rhs) const;
   IOperand			*operator*(const IOperand &rhs) const;
-  IOperand			*operator/(const IOperand &rhs) const;
-  IOperand			*operator%(const IOperand &rhs) const;
+  //  IOperand			*operator/(const IOperand &rhs) const;
+  //IOperand			*operator%(const IOperand &rhs) const;
 };
 
 #endif	// !INT8_HH_

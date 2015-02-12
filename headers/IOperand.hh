@@ -5,7 +5,7 @@
 // Login   <voinne_c@epitech.net>
 // 
 // Started on  Mon Feb  9 15:34:29 2015 Cédric Voinnet
-// Last update Wed Feb 11 13:01:01 2015 julien gazzola
+// Last update Wed Feb 11 18:06:38 2015 julien gazzola
 //
 
 #ifndef IOPERAND_HH_
@@ -32,8 +32,8 @@ public:
   virtual IOperand *operator+(const IOperand &rhs) const = 0;
   virtual IOperand *operator-(const IOperand &rhs) const = 0;
   virtual IOperand *operator*(const IOperand &rhs) const = 0;
-  virtual IOperand *operator/(const IOperand &rhs) const = 0;
-  virtual IOperand *operator%(const IOperand &rhs) const = 0;
+  //  virtual IOperand *operator/(const IOperand &rhs) const = 0;
+  //  virtual IOperand *operator%(const IOperand &rhs) const = 0;
 
 public:
   virtual ~IOperand() {}

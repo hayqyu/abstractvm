@@ -5,7 +5,7 @@
 // Login   <gazzol_j@epitech.net>
 // 
 // Started on  Tue Feb 10 11:03:34 2015 julien gazzola
-// Last update Wed Feb 11 13:02:20 2015 julien gazzola
+// Last update Wed Feb 11 18:13:56 2015 julien gazzola
 //
 
 #ifndef INT16_HH_
@@ -35,8 +35,8 @@ public:
   IOperand			*operator+(const IOperand &rhs) const;
   IOperand			*operator-(const IOperand &rhs) const;
   IOperand			*operator*(const IOperand &rhs) const;
-  IOperand			*operator/(const IOperand &rhs) const;
-  IOperand			*operator%(const IOperand &rhs) const;
+  //  IOperand			*operator/(const IOperand &rhs) const;
+  //  IOperand			*operator%(const IOperand &rhs) const;
 };
 
 #endif	// !INT16_HH_

@@ -5,7 +5,7 @@
 // Login   <gazzol_j@epitech.net>
 // 
 // Started on  Tue Feb 10 11:11:08 2015 julien gazzola
-// Last update Wed Feb 11 13:00:50 2015 julien gazzola
+// Last update Wed Feb 11 18:13:30 2015 julien gazzola
 //
 
 #ifndef DOUBLE_HH_
@@ -35,8 +35,8 @@ public:
   IOperand			*operator+(const IOperand &rhs) const;
   IOperand			*operator-(const IOperand &rhs) const;
   IOperand			*operator*(const IOperand &rhs) const;
-  IOperand			*operator/(const IOperand &rhs) const;
-  IOperand			*operator%(const IOperand &rhs) const;
+  // IOperand			*operator/(const IOperand &rhs) const;
+  // IOperand			*operator%(const IOperand &rhs) const;
   
 };
 
