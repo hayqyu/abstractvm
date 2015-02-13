@@ -5,7 +5,11 @@
 // Login   <voinne_c@epitech.net>
 // 
 // Started on  Mon Feb  9 16:57:11 2015 Cédric Voinnet
+<<<<<<< HEAD
 // Last update Fri Feb 13 09:03:19 2015 julien gazzola
+=======
+// Last update Thu Feb 12 10:46:13 2015 Cédric Voinnet
+>>>>>>> 52d4c1869d5843a2e432269c5a032c0e1ac768c0
 //
 
 #include <sstream>
