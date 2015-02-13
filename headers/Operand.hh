@@ -5,7 +5,7 @@
 // Login   <voinne_c@epitech.net>
 // 
 // Started on  Wed Feb 11 14:30:55 2015 Cédric Voinnet
-// Last update Wed Feb 11 14:37:19 2015 Cédric Voinnet
+// Last update Thu Feb 12 10:42:50 2015 julien gazzola
 //
 
 #ifndef OPERAND_HH_
@@ -17,7 +17,7 @@
 class Operand
 {
 private:
-  IOperand		*(Operand::*_funcPtrTab[5]) (const std::string &);
+  IOperand			*(Operand::*_funcPtrTab[5]) (const std::string &);
 
 public:
   Operand();

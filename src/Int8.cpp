@@ -5,7 +5,7 @@
 // Login   <voinne_c@epitech.net>
 // 
 // Started on  Mon Feb  9 16:57:11 2015 Cédric Voinnet
-// Last update Thu Feb 12 09:33:50 2015 julien gazzola
+// Last update Fri Feb 13 09:03:19 2015 julien gazzola
 //
 
 #include <sstream>
@@ -70,9 +70,9 @@ IOperand		*Int8::operator+(const IOperand::IOperand &rhs) const
       tmp >> c1;
       tmp << toString();
       tmp >> c2;
-      tmp << c1 + c2;
+      tmp << (c1 + c2);
       tmp >> stmp;
-      IO = IO = op.createOperand(enum_tmp, stmp);
+      IO = op.createOperand(enum_tmp, stmp);
       break;
 
     case INT16:
@@ -83,7 +83,7 @@ IOperand		*Int8::operator+(const IOperand::IOperand &rhs) const
       tmp >> s1;
       tmp << toString();
       tmp >> s2;
-      tmp << s1 + s2;
+      tmp << (s1 + s2);
       tmp >> stmp;
       IO = op.createOperand(enum_tmp, stmp);
       break;
@@ -95,7 +95,7 @@ IOperand		*Int8::operator+(const IOperand::IOperand &rhs) const
       tmp >> i1;
       tmp << toString();
       tmp >> i2;
-      tmp << i1 + i2;
+      tmp << (i1 + i2);
       tmp >> stmp;
       IO = op.createOperand(enum_tmp, stmp);
       break;
@@ -107,7 +107,7 @@ IOperand		*Int8::operator+(const IOperand::IOperand &rhs) const
       tmp >> f1;
       tmp << toString();
       tmp >> f2;
-      tmp << f1 + f2;
+      tmp << (f1 + f2);
       tmp >> stmp;
       IO = op.createOperand(enum_tmp, stmp);
       break;
@@ -119,7 +119,7 @@ IOperand		*Int8::operator+(const IOperand::IOperand &rhs) const
       tmp >> d1;
       tmp << toString();
       tmp >> d2;
-      tmp << d1 + d2;
+      tmp << (d1 + d2);
       tmp >> stmp;
       IO = op.createOperand(enum_tmp, stmp);
       break;
@@ -148,7 +148,7 @@ IOperand		*Int8::operator-(const IOperand::IOperand &rhs) const
       tmp >> c1;
       tmp << toString();
       tmp >> c2;
-      tmp << c1 - c2;
+      tmp << (c1 - c2);
       tmp >> stmp;
       IO = op.createOperand(enum_tmp, stmp);
       break;
@@ -161,7 +161,7 @@ IOperand		*Int8::operator-(const IOperand::IOperand &rhs) const
       tmp >> s1;
       tmp << toString();
       tmp >> s2;
-      tmp << s1 - s2;
+      tmp << (s1 - s2);
       tmp >> stmp;
       IO = op.createOperand(enum_tmp, stmp);
       break;
@@ -173,7 +173,7 @@ IOperand		*Int8::operator-(const IOperand::IOperand &rhs) const
       tmp >> i1;
       tmp << toString();
       tmp >> i2;
-      tmp << i1 - i2;
+      tmp << (i1 - i2);
       tmp >> stmp;
       IO = op.createOperand(enum_tmp, stmp);
       break;
@@ -185,7 +185,7 @@ IOperand		*Int8::operator-(const IOperand::IOperand &rhs) const
       tmp >> f1;
       tmp << toString();
       tmp >> f2;
-      tmp << f1 - f2;
+      tmp << (f1 - f2);
       tmp >> stmp;
       IO = op.createOperand(enum_tmp, stmp);
       break;
@@ -197,7 +197,7 @@ IOperand		*Int8::operator-(const IOperand::IOperand &rhs) const
       tmp >> d1;
       tmp << toString();
       tmp >> d2;
-      tmp << d1 - d2;
+      tmp << (d1 - d2);
       tmp >> stmp;
       IO = op.createOperand(enum_tmp, stmp);
       break;
@@ -226,7 +226,7 @@ IOperand		*Int8::operator*(const IOperand::IOperand &rhs) const
       tmp >> c1;
       tmp << toString();
       tmp >> c2;
-      tmp << c1 * c2;
+      tmp << (c1 * c2);
       tmp >> stmp;
       IO = op.createOperand(enum_tmp, stmp);
       break;
@@ -239,7 +239,7 @@ IOperand		*Int8::operator*(const IOperand::IOperand &rhs) const
       tmp >> s1;
       tmp << toString();
       tmp >> s2;
-      tmp << s1 * s2;
+      tmp << (s1 * s2);
       tmp >> stmp;
       IO = op.createOperand(enum_tmp, stmp);
       break;
@@ -251,7 +251,7 @@ IOperand		*Int8::operator*(const IOperand::IOperand &rhs) const
       tmp >> i1;
       tmp << toString();
       tmp >> i2;
-      tmp << i1 * i2;
+      tmp << (i1 * i2);
       tmp >> stmp;
       IO = op.createOperand(enum_tmp, stmp);
       break;
@@ -263,7 +263,7 @@ IOperand		*Int8::operator*(const IOperand::IOperand &rhs) const
       tmp >> f1;
       tmp << toString();
       tmp >> f2;
-      tmp << f1 * f2;
+      tmp << (f1 * f2);
       tmp >> stmp;
       IO = op.createOperand(enum_tmp, stmp);
       break;
@@ -275,7 +275,7 @@ IOperand		*Int8::operator*(const IOperand::IOperand &rhs) const
       tmp >> d1;
       tmp << toString();
       tmp >> d2;
-      tmp << d1 * d2;
+      tmp << (d1 * d2);
       tmp >> stmp;
       IO = op.createOperand(enum_tmp, stmp);
       break;
