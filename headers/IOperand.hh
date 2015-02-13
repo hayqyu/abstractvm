@@ -5,7 +5,7 @@
 // Login   <voinne_c@epitech.net>
 // 
 // Started on  Mon Feb  9 15:34:29 2015 Cédric Voinnet
-// Last update Wed Feb 11 18:06:38 2015 julien gazzola
+// Last update Fri Feb 13 11:32:06 2015 julien gazzola
 //
 
 #ifndef IOPERAND_HH_
@@ -13,13 +13,21 @@
 
 # include <string>
 
-typedef enum eOperandType{
+typedef enum   	  	eOperandType{
   INT8,
   INT16,
   INT32,
   FLOAT,
   DOUBLE
-}eOperandType;
+}		       	eOperandType;
+			  
+typedef union  		uType{
+  char			c;
+  short			s;
+  int	       		i;
+  float			f;
+  double       		d;
+}			uType;
 
 class IOperand
 {

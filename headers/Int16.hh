@@ -5,7 +5,7 @@
 // Login   <gazzol_j@epitech.net>
 // 
 // Started on  Tue Feb 10 11:03:34 2015 julien gazzola
-// Last update Wed Feb 11 18:13:56 2015 julien gazzola
+// Last update Fri Feb 13 16:38:30 2015 julien gazzola
 //
 
 #ifndef INT16_HH_
@@ -19,6 +19,7 @@ class Int16 : public IOperand
 private:
   std::string			_value;
   eOperandType 			_type;
+  uType				_utype;
 
 public:
   Int16(std::string);

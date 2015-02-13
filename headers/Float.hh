@@ -5,7 +5,7 @@
 // Login   <gazzol_j@epitech.net>
 // 
 // Started on  Tue Feb 10 11:13:25 2015 julien gazzola
-// Last update Wed Feb 11 18:13:48 2015 julien gazzola
+// Last update Fri Feb 13 16:39:17 2015 julien gazzola
 //
 
 #ifndef FLOAT_HH_
@@ -19,6 +19,7 @@ class Float : public IOperand
 private:
   std::string			_value;
   eOperandType 			_type;
+  uType				_utype;
 
 public:
   Float(std::string);

@@ -5,7 +5,7 @@
 // Login   <voinne_c@epitech.net>
 // 
 // Started on  Mon Feb  9 17:39:51 2015 Cédric Voinnet
-// Last update Wed Feb 11 18:06:27 2015 julien gazzola
+// Last update Fri Feb 13 16:47:20 2015 julien gazzola
 //
 
 #ifndef INT8_HH_
@@ -19,6 +19,7 @@ class Int8 : public IOperand
 private:
   std::string 	       		_value;
   eOperandType		       	_type;
+  uType				_utype;
 
 public:
   Int8(std::string);

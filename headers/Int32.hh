@@ -5,7 +5,7 @@
 // Login   <gazzol_j@epitech.net>
 // 
 // Started on  Tue Feb 10 11:08:43 2015 julien gazzola
-// Last update Wed Feb 11 18:14:04 2015 julien gazzola
+// Last update Fri Feb 13 16:38:43 2015 julien gazzola
 //
 
 #ifndef INT32_HH_
@@ -19,6 +19,7 @@ class Int32 : public IOperand
 private:
   std::string			_value;
   eOperandType 			_type;
+  uType				_utype;
 
 public:
   Int32(std::string);
