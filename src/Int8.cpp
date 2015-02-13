@@ -5,7 +5,7 @@
 // Login   <voinne_c@epitech.net>
 // 
 // Started on  Mon Feb  9 16:57:11 2015 Cédric Voinnet
-// Last update Thu Feb 12 09:33:50 2015 julien gazzola
+// Last update Thu Feb 12 10:46:13 2015 Cédric Voinnet
 //
 
 #include <sstream>
@@ -72,7 +72,7 @@ IOperand		*Int8::operator+(const IOperand::IOperand &rhs) const
       tmp >> c2;
       tmp << c1 + c2;
       tmp >> stmp;
-      IO = IO = op.createOperand(enum_tmp, stmp);
+      IO = op.createOperand(enum_tmp, stmp);
       break;
 
     case INT16:
