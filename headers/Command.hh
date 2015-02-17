@@ -5,7 +5,7 @@
 // Login   <gazzol_j@epitech.net>
 // 
 // Started on  Tue Feb 10 10:07:43 2015 julien gazzola
-// Last update Fri Feb 13 15:55:27 2015 Cédric Voinnet
+// Last update Tue Feb 17 10:43:25 2015 Cédric Voinnet
 //
 
 #ifndef COMMAND_HH_
@@ -21,10 +21,10 @@
 class					Command
 {
 private:
-  typedef void	(Command::*fptr)(std::string);
+  typedef void	(Command::*fptr)();
   typedef enum	eAsmInstr
     {
-      PUSH = 1,
+      PUSH,
       ASSERT,
       POP,
       DUMP,
@@ -37,13 +37,15 @@ private:
       EXIT
     }		eAsmInstr;
 
+  bool								_exit;
   std::vector<std::string>					_instructions;
-  std::vector<IOperand::IOperand>				_nbStack;
+  std::vector<IOperand::IOperand *>				_stack;
   std::map<std::string, std::pair<eAsmInstr, fptr> >		_parserMap;
+  std::string							_word;
 
 public:
   Command();
-  ~Command() {}
+  ~Command();
 
 public:
   void				getInstructions();
@@ -56,17 +58,17 @@ private:
   bool				parser(std::string);
 
 private:
-  void			push(std::string);
-  void			pop(std::string);
-  void			dump(std::string);
-  void			assert(std::string);
-  void			add(std::string);
-  void			sub(std::string);
-  void			mul(std::string);
-  void			div(std::string);
-  void			mod(std::string);
-  void			print(std::string);
-  void			exit(std::string);
+  void			push();
+  void			pop();
+  void			dump();
+  void			assert();
+  void			add();
+  void			sub();
+  void			mul();
+  void			div();
+  void			mod();
+  void			print();
+  void			exit();
 };
 
 #endif // !COMMAND_HH_

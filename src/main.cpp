@@ -5,7 +5,7 @@
 ** Login   <voinne_c@epitech.net>
 ** 
 ** Started on  Tue Feb 10 11:23:10 2015 Cédric Voinnet
-// Last update Fri Feb 13 10:56:08 2015 Cédric Voinnet
+// Last update Tue Feb 17 09:26:39 2015 Cédric Voinnet
 */
 
 #include <iostream>
@@ -21,7 +21,7 @@ int		main(int ac, char **av)
   if (ac == 1)
     runTime->getInstructions();
   else
-    if (runTime->getInstructions(av[1]))
+    if (!runTime->getInstructions(av[1]))
       return (-1);
   if (runTime->execution())
     {

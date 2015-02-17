@@ -9,6 +9,10 @@ add
 
 push float(44.55)
 
+;
+;exit
+;
+
 mul
 
 push double(42.42)
