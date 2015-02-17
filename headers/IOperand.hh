@@ -5,7 +5,7 @@
 // Login   <voinne_c@epitech.net>
 // 
 // Started on  Mon Feb  9 15:34:29 2015 Cédric Voinnet
-// Last update Fri Feb 13 11:32:06 2015 julien gazzola
+// Last update Mon Feb 16 13:34:14 2015 julien gazzola
 //
 
 #ifndef IOPERAND_HH_
@@ -21,14 +21,14 @@ typedef enum   	  	eOperandType{
   DOUBLE
 }		       	eOperandType;
 			  
-typedef union  		uType{
+/*typedef union  		uType{
   char			c;
   short			s;
   int	       		i;
   float			f;
   double       		d;
-}			uType;
-
+  }			uType;
+*/
 class IOperand
 {
 public:

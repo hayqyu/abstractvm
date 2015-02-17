@@ -5,7 +5,7 @@
 // Login   <voinne_c@epitech.net>
 // 
 // Started on  Wed Feb 11 14:30:55 2015 Cédric Voinnet
-// Last update Thu Feb 12 10:42:50 2015 julien gazzola
+// Last update Mon Feb 16 11:53:04 2015 julien gazzola
 //
 
 #ifndef OPERAND_HH_
