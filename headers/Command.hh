@@ -5,7 +5,7 @@
 // Login   <gazzol_j@epitech.net>
 // 
 // Started on  Tue Feb 10 10:07:43 2015 julien gazzola
-// Last update Tue Feb 17 10:43:25 2015 Cédric Voinnet
+// Last update Wed Feb 18 10:13:04 2015 Cédric Voinnet
 //
 
 #ifndef COMMAND_HH_
@@ -49,13 +49,13 @@ public:
 
 public:
   void				getInstructions();
-  bool				getInstructions(char *);
+  void				getInstructions(char *);
 
 public:
-  bool				execution();
+  void				execution();
 
 private:
-  bool				parser(std::string);
+  void				parser(std::string);
 
 private:
   void			push();

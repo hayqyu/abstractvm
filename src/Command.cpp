@@ -5,12 +5,13 @@
 // Login   <gazzol_j@epitech.net>
 // 
 // Started on  Tue Feb 10 10:20:20 2015 julien gazzola
-// Last update Tue Feb 17 10:57:17 2015 Cédric Voinnet
+// Last update Wed Feb 18 11:33:21 2015 Cédric Voinnet
 //
 
 #include <fstream>
 #include <sstream>
 #include <iostream>
+#include "Error.hh"
 #include "Operand.hh"
 #include "Command.hh"
 
@@ -54,10 +55,11 @@ void		Command::getInstructions()
   _instructions.push_back("exit");
 }
 
-bool		Command::getInstructions(char *filename)
+void			Command::getInstructions(char *filename)
 {
-  std::ifstream	file(filename);
-  std::string	instruction;
+  std::ifstream		file(filename);
+  std::string		instruction;
+  std::stringstream	error;
 
   if (file.is_open())
     {
@@ -68,69 +70,82 @@ bool		Command::getInstructions(char *filename)
     }
   else
     {
-      std::cout << "Cannot open file: " << filename << std::endl;
-      return (false);
+      error << "Cannot open file: " << filename;
+      throw Error(error.str());
     }
-  return (true);
 }
 
-bool					Command::execution()
+void					Command::execution()
 {
   std::vector<std::string>::iterator	currentInstruction = this->_instructions.begin();
+  std::stringstream			error;
 
   while (currentInstruction != this->_instructions.end() && !this->_exit){
-    if (!parser(*currentInstruction))
-      return (false);
+    parser(*currentInstruction);
     ++currentInstruction;
   }
-  return (true);
+  if (!this->_exit)
+    {
+      error << "No exit instruction";
+      throw Error(error.str());
+    }
 }
 
-bool								Command::parser(std::string line)
+void							Command::parser(std::string line)
 {
   std::stringstream						ss(line);
+  std::stringstream						error;
   std::map<std::string, std::pair<eAsmInstr, fptr> >::iterator	result;
   std::string							word;
 
   ss >> word;
   result = _parserMap.find(word);
   if (result == _parserMap.end())
-    return (false);
-  if (result->second.first == PUSH || result->second.first == ASSERT)
     {
-      ss >> word;
-      this->_word = word;
+      error << "Unknown command: " << word;
+      throw Error(error.str());
+    }
+  ss >> word;
+  if (result->second.first == PUSH || result->second.first == ASSERT)
+    this->_word = word;
+  else if (word != result->first)
+    {
+      error << result->first << " doesn't take argument";
+      throw Error(error.str());
     }
   (this->*(result->second.second))();
-  return (true);
 }
 
 void	Command::push()
 {
   Operand	creator;
-  std::cout << "C'est un push" << std::endl;
-
-  this->_stack.push_back(creator.createOperand(INT8, "12"));
 }
 
 void	Command::pop()
 {
-  IOperand	*poped;
-  std::cout << "C'est un pop" << std::endl;
+  IOperand		*poped;
+  std::stringstream	error;
 
   if (this->_stack.empty())
-    std::cout << "\tStack is empty" << std::endl;
-  else
     {
-      poped = this->_stack.back();
-      this->_stack.pop_back();
-      delete poped;
+      error << "Stack is empty";
+      throw Error(error.str());
     }
+  poped = this->_stack.back();
+  this->_stack.pop_back();
+  delete poped;
 }
+
 
 void	Command::dump()
 {
-  std::cout << "C'est un dump" << std::endl;
+  std::vector<IOperand::IOperand*>::iterator	it = this->_stack.end();
+
+  while (it != this->_stack.begin())
+    {
+      --it;
+      std::cout << (*it)->toString() << std::endl;
+    }
 }
 
 void	Command::assert()
@@ -138,16 +153,17 @@ void	Command::assert()
   std::cout << "C'est un assert" << std::endl;
 }
 
-void	Command::add()
+void			Command::add()
 {
-  IOperand	*op1;
-  IOperand	*op2;
-
-  std::cout << "C'est un add" << std::endl;
+  IOperand		*op1;
+  IOperand		*op2;
+  std::stringstream	error;
 
   if (this->_stack.size() < 2)
-    std::cout << "Oh oh, moins de 2 élements" << std::endl;
-
+    {
+      error << "Operation needs 2 operands";
+      throw Error(error.str());
+    }
   op2 = this->_stack.back();
   op1 = this->_stack.back();
   this->_stack.pop_back();
@@ -157,16 +173,17 @@ void	Command::add()
   this->_stack.push_back(*op1 + *op2);
 }
 
-void	Command::sub()
+void			Command::sub()
 {
-  IOperand	*op1;
-  IOperand	*op2;
-
-  std::cout << "C'est un sub" << std::endl;
+  IOperand		*op1;
+  IOperand		*op2;
+  std::stringstream	error;
 
   if (this->_stack.size() < 2)
-    std::cout << "Oh oh, moins de 2 élements" << std::endl;
-
+    {
+      error << "Operation needs 2 operands";
+      throw Error(error.str());
+    }
   op2 = this->_stack.back();
   op1 = this->_stack.back();
   this->_stack.pop_back();
@@ -174,18 +191,21 @@ void	Command::sub()
   std::cout << op1->toString() << std::endl;
   std::cout << op2->toString() << std::endl;
   this->_stack.push_back(*op1 - *op2);
+  delete op1;
+  delete op2;
 }
 
-void	Command::mul()
+void			Command::mul()
 {
-  IOperand	*op1;
-  IOperand	*op2;
-
-  std::cout << "C'est un mul" << std::endl;
+  IOperand		*op1;
+  IOperand		*op2;
+  std::stringstream	error;
 
   if (this->_stack.size() < 2)
-    std::cout << "Oh oh, moins de 2 élements" << std::endl;
-
+    {
+      error << "Operation needs 2 operands";
+      throw Error(error.str());
+    }
   op2 = this->_stack.back();
   op1 = this->_stack.back();
   this->_stack.pop_back();
@@ -193,44 +213,52 @@ void	Command::mul()
   std::cout << op1->toString() << std::endl;
   std::cout << op2->toString() << std::endl;
   this->_stack.push_back(*op1 * *op2);
+  delete op1;
+  delete op2;
 }
 
-void	Command::div()
+void			Command::div()
 {
-  IOperand	*op1;
-  IOperand	*op2;
-
-  std::cout << "C'est un div" << std::endl;
+  IOperand		*op1;
+  IOperand		*op2;
+  std::stringstream	error;
 
   if (this->_stack.size() < 2)
-    std::cout << "Oh oh, moins de 2 élements" << std::endl;
-
+    {
+      error << "Operation needs 2 operands";
+      throw Error(error.str());
+    }
   op2 = this->_stack.back();
   op1 = this->_stack.back();
   this->_stack.pop_back();
   this->_stack.pop_back();
   std::cout << op1->toString() << std::endl;
   std::cout << op2->toString() << std::endl;
-  this->_stack.push_back(*op1 / *op2);
+  //  this->_stack.push_back(*op1 / *op2);
+  delete op1;
+  delete op2;
 }
 
-void	Command::mod()
+void			Command::mod()
 {
-  IOperand	*op1;
-  IOperand	*op2;
-
-  std::cout << "C'est un mod" << std::endl;
+  IOperand		*op1;
+  IOperand		*op2;
+  std::stringstream	error;
 
   if (this->_stack.size() < 2)
-    std::cout << "Oh oh, moins de 2 élements" << std::endl;
-
+    {
+      error << "Operation needs 2 operands";
+      throw Error(error.str());
+    }
   op2 = this->_stack.back();
   op1 = this->_stack.back();
   this->_stack.pop_back();
   this->_stack.pop_back();
   std::cout << op1->toString() << std::endl;
   std::cout << op2->toString() << std::endl;
-  this->_stack.push_back(*op1 % *op2);
+  //  this->_stack.push_back(*op1 % *op2);
+  delete op1;
+  delete op2;
 }
 
 void	Command::print()

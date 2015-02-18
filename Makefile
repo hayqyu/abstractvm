@@ -5,7 +5,7 @@
 ## Login   <gazzol_j@epitech.net>
 ## 
 ## Started on  Tue Feb 10 16:03:27 2015 julien gazzola
-## Last update Mon Feb 16 13:34:33 2015 julien gazzola
+## Last update Wed Feb 18 09:52:48 2015 Cédric Voinnet
 ##
 
 CC =		clang++
@@ -18,15 +18,16 @@ CXXFLAGS =	-Wall -Wextra -Wall -g3
 
 NAME =		bin/avm
 
-SRC =		src/main.cpp \
-		src/Calc.cpp #\
+SRC =		src/Error.cpp \
+		src/main.cpp \
 		src/Command.cpp \
 		src/Operand.cpp \
 		src/Float.cpp \
 		src/Double.cpp \
 		src/Int8.cpp \
 		src/Int16.cpp \
-		src/Int32.cpp 
+		src/Int32.cpp #\
+		src/Calc.cpp \
 
 OBJ =		$(SRC:.cpp=.o)
 
