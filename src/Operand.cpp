@@ -5,11 +5,12 @@
 // Login   <voinne_c@epitech.net>
 // 
 // Started on  Wed Feb 11 14:26:25 2015 Cédric Voinnet
-// Last update Wed Feb 18 14:18:38 2015 Cédric Voinnet
+// Last update Wed Feb 18 14:20:31 2015 Cédric Voinnet
 //
 
 #include "Operand.hh"
 #include "IOperand.hh"
+#include "Calc.hh"
 
 Operand::Operand()
 {
