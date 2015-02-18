@@ -5,16 +5,11 @@
 // Login   <voinne_c@epitech.net>
 // 
 // Started on  Wed Feb 11 14:26:25 2015 Cédric Voinnet
-// Last update Wed Feb 11 14:36:57 2015 Cédric Voinnet
+// Last update Wed Feb 18 14:18:38 2015 Cédric Voinnet
 //
 
 #include "Operand.hh"
 #include "IOperand.hh"
-#include "Int8.hh"
-#include "Int16.hh"
-#include "Int32.hh"
-#include "Float.hh"
-#include "Double.hh"
 
 Operand::Operand()
 {
@@ -32,30 +27,30 @@ IOperand	*Operand::createOperand(eOperandType type, const std::string & value)
 
 IOperand	*Operand::createInt8(const std::string & value)
 {
-  IOperand	*operand = new Int8(value);
+  IOperand	*operand = new Calc<char>(value);
   return (operand);
 }
 
 IOperand	*Operand::createInt16(const std::string & value)
 {
-  IOperand	*operand = new Int16(value);
+  IOperand	*operand = new Calc<short>(value);
   return (operand);
 }
 
 IOperand	*Operand::createInt32(const std::string & value)
 {
-  IOperand	*operand = new Int32(value);
+  IOperand	*operand = new Calc<int>(value);
   return (operand);
 }
 
 IOperand	*Operand::createFloat(const std::string & value)
 {
-  IOperand	*operand = new Float(value);
+  IOperand	*operand = new Calc<float>(value);
   return (operand);
 }
 
 IOperand	*Operand::createDouble(const std::string & value)
 {
-  IOperand	*operand = new Double(value);
+  IOperand	*operand = new Calc<double>(value);
   return (operand);
 }
