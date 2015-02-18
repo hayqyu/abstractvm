@@ -5,7 +5,7 @@
 // Login   <voinne_c@epitech.net>
 // 
 // Started on  Mon Feb  9 15:34:29 2015 Cédric Voinnet
-// Last update Wed Feb 18 08:34:22 2015 Cédric Voinnet
+// Last update Wed Feb 18 14:16:26 2015 julien gazzola
 //
 
 #ifndef IOPERAND_HH_
@@ -20,14 +20,6 @@ typedef enum   	  	eOperandType{
   FLOAT,
   DOUBLE
 }		       	eOperandType;
-			  
-typedef union  		uType{
-  char			c;
-  short			s;
-  int	       		i;
-  float			f;
-  double       		d;
-  }			uType;
 
 class IOperand
 {
@@ -40,8 +32,8 @@ public:
   virtual IOperand *operator+(const IOperand &rhs) const = 0;
   virtual IOperand *operator-(const IOperand &rhs) const = 0;
   virtual IOperand *operator*(const IOperand &rhs) const = 0;
-  //  virtual IOperand *operator/(const IOperand &rhs) const = 0;
-  //  virtual IOperand *operator%(const IOperand &rhs) const = 0;
+  virtual IOperand *operator/(const IOperand &rhs) const = 0;
+  virtual IOperand *operator%(const IOperand &rhs) const = 0;
 
 public:
   virtual ~IOperand() {}

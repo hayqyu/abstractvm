@@ -5,34 +5,41 @@
 // Login   <gazzol_j@epitech.net>
 // 
 // Started on  Mon Feb 16 11:53:53 2015 julien gazzola
-// Last update Tue Feb 17 09:16:49 2015 julien gazzola
+// Last update Wed Feb 18 15:13:02 2015 julien gazzola
 //
 
 #ifndef CALC_HH_
 # define CALC_HH_
 
+# include <map>
 # include "IOperand.hh"
 
-template<typename T> class Calc;
+// template<typename T> class Calc;
 
 template<typename T>
 class Calc : public IOperand
 {
+private:
+  std::string			_value;
+  typedef IOperand *(Calc::*funcptr)(const IOperand &);
+  std::map<char, funcptr>	_operand;
+
 public:
-  Calc();
+  Calc(std::string);
   ~Calc(){}
 
 public:
-  virtual std::string const     &toString() const;
-  virtual int                   getPrecision() const;
-  virtual eOperandType          getType() const;
+  std::string const     &toString() const;
+  int                   getPrecision() const;
+  eOperandType          getType() const;
+  T			getValue() const;			
 
 public:
   IOperand *operator+(const IOperand &rhs) const;
   IOperand *operator-(const IOperand &rhs) const;
   IOperand *operator*(const IOperand &rhs) const;
-  //  IOperand *operator/(const IOperand &rhs) const;                   
-  //  IOperand *operator%(const IOperand &rhs) const;
+  IOperand *operator/(const IOperand &rhs) const;                   
+  IOperand *operator%(const IOperand &rhs) const;
 };
 
 #endif	// CALC_HH_
