@@ -5,14 +5,15 @@
 // Login   <gazzol_j@epitech.net>
 // 
 // Started on  Mon Feb 16 13:32:42 2015 julien gazzola
-// Last update Wed Feb 18 16:06:15 2015 julien gazzola
+// Last update Thu Feb 19 15:16:32 2015 julien gazzola
 //
 
+#include <sstream>
 #include <string>
 #include "Calc.hh"
 
-template<typebn T>
-Calc::Calc<T>(std::string value):
+template<typename T>
+Calc<T>::Calc(std::string value):
   _value(value)
 {
   _operand['+'] = &Calc::operator+;
@@ -22,10 +23,11 @@ Calc::Calc<T>(std::string value):
   _operand['%'] = &Calc::operator%;
 }
 
-template<typename T, typename U>
-IOperand		Calc::*operator+(const IOperand &rhs) const;
+template<typename T>
+template<typename V, U>
+IOperand		*Calc<T>::operator+(const IOperand &rhs)
 {
-  T			nbr1;
+  V			nbr1;
   U			nbr2;
   std::stringstream	ss;
   std::string		str;
@@ -48,10 +50,11 @@ IOperand		Calc::*operator+(const IOperand &rhs) const;
    }
 }
 
-template<typename T, typename U>
-IOperand	Calc::*operator-(const IOperand &rhs) const;
+template<typename T>
+template<typename V, typename U>
+IOperand		*Calc<T>::operator-(const IOperand &rhs)
 {
-  T			nbr1;
+  V			nbr1;
   U			nbr2;
   std::stringstream	ss;
   std::string		str;
@@ -74,10 +77,11 @@ IOperand	Calc::*operator-(const IOperand &rhs) const;
    }
 }
 
-template<typename T, typename U>
-IOperand	Calc::*operator*(const IOperand &rhs) const;
+template<typename T>
+template<typename V, typename U>
+IOperand		*Calc<T>::operator*(const IOperand &rhs)
 {
-  T			nbr1;
+  V			nbr1;
   U			nbr2;
   std::stringstream	ss;
   std::string		str;
@@ -100,10 +104,11 @@ IOperand	Calc::*operator*(const IOperand &rhs) const;
    }
 }
 
-template<typename T, typename U>
-IOperand	Calc::*operator/(const IOperand &rhs) const;
+template<typename T>
+template<typename V, typename U>
+IOperand		*Calc<T>::operator/(const IOperand &rhs)
 {
-  T			nbr1;
+  V			nbr1;
   U			nbr2;
   std::stringstream	ss;
   std::string		str;
@@ -130,23 +135,33 @@ IOperand	Calc::*operator/(const IOperand &rhs) const;
     }
 }
 
-template<typename T, typename U>
-IOperand	Calc::*operator%(const IOperand &rhs) const;
+template>typename T
+template<typename V, typename U>
+IOperand		*Calc<T>::operator%(const IOperand &rhs)
 {
 
 }
 
-std::string const	&Calc::toString() const
+template<>
+std::string const	&Calc<>::toString() const
 {
 
 }
 
-int			Calc::getPrecision() const
+template<>
+int			Calc<>::getPrecision() const
 {
 
 }
 
-eOperandType		Calc::getType() const
+template<>
+eOperandType		Calc<>::getType() const
 {
 
 }
+
+template class Calc <char>;
+template class Calc <short>;
+template class Calc <int>;
+template class Calc <float>;
+template class Calc <double>;
