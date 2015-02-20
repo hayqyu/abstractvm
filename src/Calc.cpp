@@ -5,116 +5,123 @@
 // Login   <gazzol_j@epitech.net>
 // 
 // Started on  Mon Feb 16 13:32:42 2015 julien gazzola
-// Last update Thu Feb 19 15:16:32 2015 julien gazzola
+// Last update Fri Feb 20 10:58:15 2015 julien gazzola
 //
 
 #include <sstream>
 #include <string>
+#include "Operand.hh"
 #include "Calc.hh"
 
 template<typename T>
 Calc<T>::Calc(std::string value):
   _value(value)
-{
-  _operand['+'] = &Calc::operator+;
-  _operand['-'] = &Calc::operator-;
-  _operand['*'] = &Calc::operator*;
-  _operand['/'] = &Calc::operator/;
-  _operand['%'] = &Calc::operator%;
-}
+{}
 
 template<typename T>
-template<typename V, U>
-IOperand		*Calc<T>::operator+(const IOperand &rhs)
+template<typename V, typename U>
+IOperand		*Calc<T>::operator+(const IOperand &rhs) const
 {
   V			nbr1;
   U			nbr2;
   std::stringstream	ss;
   std::string		str;
+  Operand      		op;
   
-  nbr1 = this->getValue();
-  nbr2 = rhs.getValue();
+  ss << this->toString();
+  ss >> nbr1;
+  ss << rhs.toString();
+  ss >> nbr2;
    if (this->getType() > rhs.getType())
     {
       nbr1 = nbr1 + nbr2;
       ss << nbr1;
       ss >> str;
-      return (createOperand(this->getType(), str));
+      return (op.createOperand(this->getType(), str));
     }
- else
+   else
    {
      nbr2 = nbr1 + nbr2;
      ss << nbr2;
      ss >> nbr2;
-     return (createOperand(rhs.getType(), str));
+     return (op.createOperand(rhs.getType(), str));
    }
 }
 
 template<typename T>
 template<typename V, typename U>
-IOperand		*Calc<T>::operator-(const IOperand &rhs)
+IOperand		*Calc<T>::operator-(const IOperand &rhs) const
 {
   V			nbr1;
   U			nbr2;
   std::stringstream	ss;
   std::string		str;
+  Operand      		op;
   
-  nbr1 = this->getValue();
-  nbr2 = rhs.getValue();
+  ss << this->toString();
+  ss >> nbr1;
+  ss << rhs.toString();
+  ss >> nbr2;
    if (this->getType() > rhs.getType())
     {
       nbr1 = nbr1 - nbr2;
       ss << nbr1;
       ss >> str;
-      return (createOperand(this->getType(), str));
+      return (op.createOperand(this->getType(), str));
     }
  else
    {
      nbr2 = nbr1 - nbr2;
      ss << nbr2;
      ss >> nbr2;
-     return (createOperand(rhs.getType(), str));
+     return (op.createOperand(rhs.getType(), str));
    }
 }
 
 template<typename T>
 template<typename V, typename U>
-IOperand		*Calc<T>::operator*(const IOperand &rhs)
+IOperand		*Calc<T>::operator*(const IOperand &rhs) const
 {
   V			nbr1;
   U			nbr2;
   std::stringstream	ss;
   std::string		str;
+  Operand      		op;
   
-  nbr1 = this->getValue();
-  nbr2 = rhs.getValue();
-   if (this->getType() > rhs.getType())
+  ss << this->toString();
+  ss >> nbr1;
+  ss << rhs.toString();
+  ss >> nbr2;
+  if (this->getType() > rhs.getType())
     {
       nbr1 = nbr1 * nbr2;
       ss << nbr1;
       ss >> str;
-      return (createOperand(this->getType(), str));
+      return (op.createOperand(this->getType(), str));
     }
  else
    {
      nbr2 = nbr1 * nbr2;
      ss << nbr2;
      ss >> nbr2;
-     return (createOperand(rhs.getType(), str));
+     return (op.createOperand(rhs.getType(), str));
    }
 }
 
 template<typename T>
 template<typename V, typename U>
-IOperand		*Calc<T>::operator/(const IOperand &rhs)
+IOperand		*Calc<T>::operator/(const IOperand &rhs) const
 {
   V			nbr1;
   U			nbr2;
   std::stringstream	ss;
   std::string		str;
+  Operand      		op;
   
-  nbr1 = this->getValue();
-  nbr2 = rhs.getValue();
+  ss << this->toString();
+  ss >> nbr1;
+  ss << rhs.toString();
+  ss >> nbr2;
   if (nbr2 == 0)
     {
 
@@ -124,38 +131,20 @@ IOperand		*Calc<T>::operator/(const IOperand &rhs)
       nbr1 = nbr1 / nbr2;
       ss << nbr1;
       ss >> str;
-      return (createOperand(this->getType(), str));
+      return (op.createOperand(this->getType(), str));
     }
   else
     {
       nbr2 = nbr1 / nbr2;
       ss << nbr2;
       ss >> nbr2;
-      return (createOperand(rhs.getType(), str));
+      return (op.createOperand(rhs.getType(), str));
     }
 }
 
-template>typename T
+template<typename T>
 template<typename V, typename U>
-IOperand		*Calc<T>::operator%(const IOperand &rhs)
-{
-
-}
-
-template<>
-std::string const	&Calc<>::toString() const
-{
-
-}
-
-template<>
-int			Calc<>::getPrecision() const
-{
-
-}
-
-template<>
-eOperandType		Calc<>::getType() const
+IOperand		*Calc<T>::operator%(const IOperand &rhs) const
 {
 
 }
