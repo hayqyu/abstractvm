@@ -5,7 +5,7 @@
 // Login   <gazzol_j@epitech.net>
 // 
 // Started on  Tue Feb 10 10:20:20 2015 julien gazzola
-// Last update Wed Feb 18 11:33:21 2015 Cédric Voinnet
+// Last update Fri Feb 20 13:30:26 2015 Cédric Voinnet
 //
 
 #include <fstream>
@@ -29,6 +29,12 @@ Command::Command()
   _parserMap["mod"] = std::make_pair(MOD, &Command::mod);
   _parserMap["print"] = std::make_pair(PRINT, &Command::print);
   _parserMap["exit"] = std::make_pair(EXIT, &Command::exit);
+
+  _typeVector.push_back(std::make_pair("Int8(", INT8));
+  _typeVector.push_back(std::make_pair("Int16(", INT16));
+  _typeVector.push_back(std::make_pair("Int32(", INT32));
+  _typeVector.push_back(std::make_pair("Float(", FLOAT));
+  _typeVector.push_back(std::make_pair("Double(", DOUBLE));
 }
 
 Command::~Command()
@@ -48,10 +54,7 @@ void		Command::getInstructions()
   std::string	instruction;
 
   while (getline(std::cin, instruction) && instruction != ";;")
-    {
-      if (instruction != "" && instruction.at(0) != ';')
-	this->_instructions.push_back(instruction);
-    }
+    this->_instructions.push_back(instruction.substr(0, instruction.find(";")));
   _instructions.push_back("exit");
 }
 
@@ -64,8 +67,7 @@ void			Command::getInstructions(char *filename)
   if (file.is_open())
     {
       while (getline(file, instruction))
-	if (instruction != "" && instruction.at(0) != ';')
-	  this->_instructions.push_back(instruction);
+	this->_instructions.push_back(instruction.substr(0, instruction.find(";")));
       file.close();
     }
   else
@@ -81,7 +83,8 @@ void					Command::execution()
   std::stringstream			error;
 
   while (currentInstruction != this->_instructions.end() && !this->_exit){
-    parser(*currentInstruction);
+    if (*currentInstruction != "")
+      parser(*currentInstruction);
     ++currentInstruction;
   }
   if (!this->_exit)
@@ -107,7 +110,7 @@ void							Command::parser(std::string line)
     }
   ss >> word;
   if (result->second.first == PUSH || result->second.first == ASSERT)
-    this->_word = word;
+    this->_value = word;
   else if (word != result->first)
     {
       error << result->first << " doesn't take argument";
@@ -116,9 +119,33 @@ void							Command::parser(std::string line)
   (this->*(result->second.second))();
 }
 
+void								Command::checkValue()
+{
+  std::vector<std::pair<std::string, eOperandType> >::iterator	it;
+  bool								ok = false;
+  std::stringstream						error;
+
+  it = this->_typeVector.begin();
+  while (it != this->_typeVector.end())
+    {
+      if (this->_value.find(it->first) != std::string::npos){
+	this->_type = it->second;
+	ok = true;
+      }
+      ++it;
+    }
+  if (!ok)
+    {
+      error << ""
+      throw Error(error.str());
+    }
+}
+
 void	Command::push()
 {
   Operand	creator;
+
+  checkValue();
 }
 
 void	Command::pop()
@@ -171,6 +198,8 @@ void			Command::add()
   std::cout << op1->toString() << std::endl;
   std::cout << op2->toString() << std::endl;
   this->_stack.push_back(*op1 + *op2);
+  delete op1;
+  delete op2;
 }
 
 void			Command::sub()
