@@ -5,7 +5,7 @@
 // Login   <gazzol_j@epitech.net>
 // 
 // Started on  Tue Feb 10 10:20:20 2015 julien gazzola
-// Last update Fri Feb 20 13:30:26 2015 Cédric Voinnet
+// Last update Fri Feb 20 13:41:42 2015 Cédric Voinnet
 //
 
 #include <fstream>
@@ -136,7 +136,7 @@ void								Command::checkValue()
     }
   if (!ok)
     {
-      error << ""
+      error << "Unknown object: " << this->_value;
       throw Error(error.str());
     }
 }
