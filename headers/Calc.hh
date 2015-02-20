@@ -5,7 +5,7 @@
 // Login   <gazzol_j@epitech.net>
 // 
 // Started on  Mon Feb 16 11:53:53 2015 julien gazzola
-// Last update Fri Feb 20 11:00:21 2015 julien gazzola
+// Last update Fri Feb 20 13:28:34 2015 julien gazzola
 //
 
 #ifndef CALC_HH_
@@ -14,7 +14,6 @@
 # include <map>
 # include "IOperand.hh"
 
-template<typename T>
 class Calc : public IOperand
 {
 private:
@@ -31,16 +30,23 @@ public:
   eOperandType          getType() const;
 
 public:
-  template<typename V, typename U>
   IOperand *operator+(const IOperand &rhs) const;
-  template<typename V, typename U>
   IOperand *operator-(const IOperand &rhs) const;
-  template<typename V, typename U>
   IOperand *operator*(const IOperand &rhs) const;
-  template<typename V, typename U>
   IOperand *operator/(const IOperand &rhs) const;
-  template<typename V, typename U>
   IOperand *operator%(const IOperand &rhs) const;
+
+public:
+  template <typename V, typename U>
+  IOperand *my_add(const IOperand &rhs);
+  template <typename V, typename U>
+  IOperand *my_sub(const IOperand &rhs);
+  template <typename V, typename U>
+  IOperand *my_mul(const IOperand &rhs);
+  template <typename V, typename U>
+  IOperand *my_div(const IOperand &rhs);
+  template <typename V, typename U>
+  IOperand *my_mod(const IOperand &rhs);
 };
 
 #endif	// CALC_HH_
