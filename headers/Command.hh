@@ -5,7 +5,7 @@
 // Login   <gazzol_j@epitech.net>
 // 
 // Started on  Tue Feb 10 10:07:43 2015 julien gazzola
-// Last update Wed Feb 18 10:13:04 2015 Cédric Voinnet
+// Last update Fri Feb 20 13:21:39 2015 Cédric Voinnet
 //
 
 #ifndef COMMAND_HH_
@@ -41,7 +41,9 @@ private:
   std::vector<std::string>					_instructions;
   std::vector<IOperand::IOperand *>				_stack;
   std::map<std::string, std::pair<eAsmInstr, fptr> >		_parserMap;
-  std::string							_word;
+  std::vector<std::pair<std::string, eOperandType> >			_typeVector;
+  std::string							_value;
+  eOperandType							_type;
 
 public:
   Command();
@@ -55,6 +57,7 @@ public:
   void				execution();
 
 private:
+  void				checkValue();
   void				parser(std::string);
 
 private:

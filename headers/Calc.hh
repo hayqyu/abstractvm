@@ -5,7 +5,7 @@
 // Login   <gazzol_j@epitech.net>
 // 
 // Started on  Mon Feb 16 11:53:53 2015 julien gazzola
-// Last update Fri Feb 20 11:00:21 2015 julien gazzola
+// Last update Fri Feb 20 11:08:21 2015 Cédric Voinnet
 //
 
 #ifndef CALC_HH_
