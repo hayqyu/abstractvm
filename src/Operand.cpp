@@ -5,7 +5,7 @@
 // Login   <voinne_c@epitech.net>
 // 
 // Started on  Wed Feb 11 14:26:25 2015 Cédric Voinnet
-// Last update Fri Feb 20 13:30:51 2015 Cédric Voinnet
+// Last update Mon Feb 23 11:22:01 2015 Cédric Voinnet
 //
 
 #include "Operand.hh"

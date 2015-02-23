@@ -5,7 +5,7 @@
 // Login   <gazzol_j@epitech.net>
 // 
 // Started on  Tue Feb 10 10:20:20 2015 julien gazzola
-// Last update Fri Feb 20 13:41:42 2015 Cédric Voinnet
+// Last update Mon Feb 23 11:19:52 2015 Cédric Voinnet
 //
 
 #include <fstream>
@@ -30,11 +30,11 @@ Command::Command()
   _parserMap["print"] = std::make_pair(PRINT, &Command::print);
   _parserMap["exit"] = std::make_pair(EXIT, &Command::exit);
 
-  _typeVector.push_back(std::make_pair("Int8(", INT8));
-  _typeVector.push_back(std::make_pair("Int16(", INT16));
-  _typeVector.push_back(std::make_pair("Int32(", INT32));
-  _typeVector.push_back(std::make_pair("Float(", FLOAT));
-  _typeVector.push_back(std::make_pair("Double(", DOUBLE));
+  _typeVector.push_back(std::make_pair("int8(", INT8));
+  _typeVector.push_back(std::make_pair("int16(", INT16));
+  _typeVector.push_back(std::make_pair("int32(", INT32));
+  _typeVector.push_back(std::make_pair("float(", FLOAT));
+  _typeVector.push_back(std::make_pair("double(", DOUBLE));
 }
 
 Command::~Command()
@@ -124,21 +124,35 @@ void								Command::checkValue()
   std::vector<std::pair<std::string, eOperandType> >::iterator	it;
   bool								ok = false;
   std::stringstream						error;
+  size_t							begPos;
+  size_t							endPos;
+  size_t							len;
+  std::string							value;
 
   it = this->_typeVector.begin();
   while (it != this->_typeVector.end())
     {
-      if (this->_value.find(it->first) != std::string::npos){
-	this->_type = it->second;
-	ok = true;
-      }
+      if ((begPos = this->_value.find(it->first)) != std::string::npos)
+	{
+	  this->_type = it->second;
+	  len = it->first.size();
+	  ok = true;
+	}
       ++it;
     }
   if (!ok)
     {
-      error << "Unknown object: " << this->_value;
+      error << "Unknown value type: " << this->_value;
       throw Error(error.str());
     }
+  if ((endPos = this->_value.find(")")) != this->_value.size() - 1)
+    {
+      error << this->_value << " : Missing \")\"";
+      throw Error(error.str());
+    }
+  begPos += len + 1;
+  len = endPos - begPos;
+  this->_value = this->_value.substr(begPos, len);
 }
 
 void	Command::push()
@@ -146,6 +160,7 @@ void	Command::push()
   Operand	creator;
 
   checkValue();
+  this->_stack.push_back(creator.createOperand(this->_type, this->_value));
 }
 
 void	Command::pop()
@@ -177,7 +192,19 @@ void	Command::dump()
 
 void	Command::assert()
 {
-  std::cout << "C'est un assert" << std::endl;
+  std::stringstream	error;
+
+  checkValue();
+  if (this->_stack.empty())
+    {
+      error << "Stack is empty";
+      throw Error(error.str());
+    }
+  if (this->_type != this->_stack.back()->getType() || this->_value != this->_stack.back()->toString())
+    {
+      error << "Values differ";
+      throw Error(error.str());
+    }
 }
 
 void			Command::add()
@@ -195,8 +222,6 @@ void			Command::add()
   op1 = this->_stack.back();
   this->_stack.pop_back();
   this->_stack.pop_back();
-  std::cout << op1->toString() << std::endl;
-  std::cout << op2->toString() << std::endl;
   this->_stack.push_back(*op1 + *op2);
   delete op1;
   delete op2;
@@ -217,8 +242,6 @@ void			Command::sub()
   op1 = this->_stack.back();
   this->_stack.pop_back();
   this->_stack.pop_back();
-  std::cout << op1->toString() << std::endl;
-  std::cout << op2->toString() << std::endl;
   this->_stack.push_back(*op1 - *op2);
   delete op1;
   delete op2;
@@ -239,8 +262,6 @@ void			Command::mul()
   op1 = this->_stack.back();
   this->_stack.pop_back();
   this->_stack.pop_back();
-  std::cout << op1->toString() << std::endl;
-  std::cout << op2->toString() << std::endl;
   this->_stack.push_back(*op1 * *op2);
   delete op1;
   delete op2;
@@ -261,9 +282,7 @@ void			Command::div()
   op1 = this->_stack.back();
   this->_stack.pop_back();
   this->_stack.pop_back();
-  std::cout << op1->toString() << std::endl;
-  std::cout << op2->toString() << std::endl;
-  //  this->_stack.push_back(*op1 / *op2);
+  this->_stack.push_back(*op1 / *op2);
   delete op1;
   delete op2;
 }
@@ -283,16 +302,30 @@ void			Command::mod()
   op1 = this->_stack.back();
   this->_stack.pop_back();
   this->_stack.pop_back();
-  std::cout << op1->toString() << std::endl;
-  std::cout << op2->toString() << std::endl;
-  //  this->_stack.push_back(*op1 % *op2);
+  this->_stack.push_back(*op1 % *op2);
   delete op1;
   delete op2;
 }
 
 void	Command::print()
 {
-  std::cout << "C'est un print" << std::endl;
+  std::stringstream	error;
+  std::stringstream	tmp;
+  char			toPrint;
+
+  if (this->_stack.empty())
+    {
+      error << "Stack is empty";
+      throw Error(error.str());
+    }
+  if (this->_stack.back()->getType() != INT8)
+    {
+      error << "Value is not of type int8";
+      throw Error(error.str());
+    }
+  tmp << this->_stack.back()->toString();
+  tmp >> toPrint;
+  std::cout << toPrint << std::endl;
 }
 
 void	Command::exit()
