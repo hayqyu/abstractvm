@@ -5,7 +5,7 @@
 // Login   <gazzol_j@epitech.net>
 // 
 // Started on  Mon Feb 16 11:53:53 2015 julien gazzola
-// Last update Fri Feb 20 13:28:34 2015 julien gazzola
+// Last update Fri Feb 20 15:10:31 2015 julien gazzola
 //
 
 #ifndef CALC_HH_
@@ -14,11 +14,13 @@
 # include <map>
 # include "IOperand.hh"
 
+template <typename T>
 class Calc : public IOperand
 {
 private:
-  std::string			_value;
+  std::string				_value;
   typedef IOperand *(Calc::*funcptr)(const IOperand &) const;
+  std::map<eOperandType, funcptr>	_type;
 
 public:
   Calc(std::string);

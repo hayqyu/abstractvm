@@ -5,7 +5,7 @@
 // Login   <gazzol_j@epitech.net>
 // 
 // Started on  Mon Feb 16 13:32:42 2015 julien gazzola
-// Last update Fri Feb 20 13:29:53 2015 julien gazzola
+// Last update Sat Feb 21 16:22:19 2015 julien gazzola
 //
 
 #include <sstream>
@@ -15,8 +15,15 @@
 
 Calc::Calc(std::string value):
   _value(value)
-{}
+{
+  _type["INT8"] = &Calc<char>::my_calc;
+  _type["INT16"] = &Calc<short>::my_calc;
+  _type["INT32"] = &Calc<int>::my_calc;
+  _type["FLOAT"] = &Calc<float>::my_calc;
+  _type["DOUBLE"] = &Calc<double>::mycalc;
+}
 
+template<typename T>
 template<typename V, typename U>
 IOperand		*Calc::my_add(const IOperand &rhs)
 {
@@ -46,6 +53,7 @@ IOperand		*Calc::my_add(const IOperand &rhs)
    }
 }
 
+template<typename T>
 template<typename V, typename U>
 IOperand		*Calc::my_sub(const IOperand &rhs)
 {
@@ -75,6 +83,7 @@ IOperand		*Calc::my_sub(const IOperand &rhs)
    }
 }
 
+template<typename T>
 template<typename V, typename U>
 IOperand		*Calc::my_mul(const IOperand &rhs)
 {
@@ -104,6 +113,7 @@ IOperand		*Calc::my_mul(const IOperand &rhs)
    }
 }
 
+template<typename T>
 template<typename V, typename U>
 IOperand		*Calc::my_div(const IOperand &rhs)
 {
@@ -133,6 +143,7 @@ IOperand		*Calc::my_div(const IOperand &rhs)
    }
 }
 
+template<typename T>
 template<typename V, typename U>
 IOperand		*Calc::my_mod(const IOperand &rhs)
 {
@@ -162,11 +173,16 @@ IOperand		*Calc::my_mod(const IOperand &rhs)
    }
 }
 
-IOperand		*Calc::operator+(const IOperand &rhs) const
+IOperand			*Calc::operator+(const IOperand &rhs) const
 {
-  IOperand		*IO;
+  IOperand			*IO;
+  eOperandType			tmp;
+  eOperandType			tmp2;
+  std::stringstream		ss;
 
-  IO = this->my_add(rhs);
+  tmp = this->getType();
+  tmp2 = rhs.getType();
+  IO = this->my_add<, >(rhs);
   return (IO);
 }
 
@@ -179,7 +195,6 @@ IOperand		*Calc::operator*(const IOperand &rhs) const
 {
   return (this->my_mul(rhs));
 }
-
 
 IOperand		*Calc::operator/(const IOperand &rhs) const
 {
