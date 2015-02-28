@@ -5,10 +5,10 @@
 ## Login   <gazzol_j@epitech.net>
 ## 
 ## Started on  Tue Feb 10 16:03:27 2015 julien gazzola
-## Last update Mon Feb 23 11:23:32 2015 Cédric Voinnet
+## Last update Sat Feb 28 08:50:40 2015 Cédric Voinnet
 ##
 
-CC =		clang++
+CC =		g++
 
 RM =		rm -f
 
